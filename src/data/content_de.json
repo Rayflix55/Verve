@@ -1,0 +1,181 @@
+{
+  "company": {
+    "name": "Verve",
+    "tagline": "KI-gestützte Produktivitätsplattform",
+    "logo": "Verve"
+  },
+  "navigation": [
+    { "label": "Startseite", "href": "#home" },
+    { "label": "Funktionen", "href": "#features" },
+    { "label": "Preise", "href": "#pricing" },
+    { "label": "Blog", "href": "#blog" },
+    { "label": "Kontakt", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "✨ KI-gestütztes Team-Management",
+    "headline": "Smarter by design. Simplified by AI.",
+    "description": "Automatisieren Sie Ihre Workflows, setzen Sie Prioritäten und skalieren Sie die Geschwindigkeit Ihres Teams mit kontextbewussten KI-Assistenten, die direkt in Ihre täglichen Tools integriert sind.",
+    "primaryCta": "Kostenlos starten",
+    "secondaryCta": "Demo ansehen",
+    "trustedText": "VERTREUT VON DEN GRÖSSTEN UNTERNEHMEN DER WELT"
+  },
+  "stats": [
+    {
+      "value": "$5M+",
+      "label": "KOSTENEINSPARUNGEN",
+      "sublabel": "Gesamte Kosteneinsparungen, die weltweit für Unternehmenskunden erzielt wurden."
+    },
+    {
+      "value": "250+",
+      "label": "DIGITALER TREND",
+      "sublabel": "Gleichzeitig ausgeführte Automatisierungen pro aktivem Unternehmensteam."
+    },
+    {
+      "value": "98%",
+      "label": "KUNDENVERTRAUEN",
+      "sublabel": "Jährliche Bindungsrate unter Fortune-500-Partnern."
+    }
+  ],
+  "featuresOverview": [
+    {
+      "id": "fo-1",
+      "icon": "Sparkles",
+      "title": "KI-gestützte Priorisierung",
+      "description": "Ordnet Ihre Aufgaben intelligent nach Teamgeschwindigkeit, Projektauswirkung und Fristen, um alle auf hochwertige Arbeit auszurichten."
+    },
+    {
+      "id": "fo-2",
+      "icon": "Zap",
+      "title": "Aufgaben sofort erfassen",
+      "description": "Erfassen und analysieren Sie Aktionspunkte sofort aus Slack-Threads, E-Mails oder Sprachmemos mit tiefer Verarbeitung natürlicher Sprache."
+    },
+    {
+      "id": "fo-3",
+      "icon": "Cpu",
+      "title": "Nahtlose Automatisierung",
+      "description": "Konfigurieren Sie komplexe Multi-App-Trigger und dynamische Aktionen mit einem codefreien visuellen Builder, der sich wie ein menschlicher Agent verhält."
+    }
+  ],
+  "productShowcase": {
+    "badge": "EINFACHE FUNKTIONEN",
+    "title": "Ihre Produktivität, neu erfunden mit KI",
+    "description": "Verve ersetzt fragmentierte Aufgaben-Tracker und unzusammenhängende Dokumentationen durch einen einheitlichen, selbstoptimierenden Arbeitsbereich.",
+    "capabilities": [
+      {
+        "icon": "Layers",
+        "title": "Kontextbezogene Aufgabenboards",
+        "description": "Board-Ansichten, die sich an den Workflow Ihres Teams anpassen und verwandte Aufgaben automatisch gruppieren."
+      },
+      {
+        "icon": "GitBranch",
+        "title": "Automatisierte Fortschrittszweige",
+        "description": "Synchronisieren Sie Git-Commits direkt mit Projektmanagement-Tickets, um den Status von Aufgaben automatisch zu aktualisieren."
+      },
+      {
+        "icon": "MessageSquare",
+        "title": "Natürliche Sprachabfragen",
+        "description": "Fragen Sie 'Was blockiert den Produktstart?' und erhalten Sie sofort eine verifizierte Zusammenfassung von Slack und Jira."
+      },
+      {
+        "icon": "BarChart3",
+        "title": "Prädiktive Burndowns",
+        "description": "Verve analysiert vergangene Geschwindigkeiten, um Sie 2 Wochen vor dem Auftreten vor potenziellen Verzögerungen beim Start zu warnen."
+      }
+    ]
+  },
+  "extendedFeatures": [
+    {
+      "id": "ef-1",
+      "icon": "Activity",
+      "title": "Geschwindigkeitsverfolgung",
+      "description": "Automatische Berechnung der Sprint-Geschwindigkeit basierend auf dem historischen Abschluss von Aufgaben und der relativen Schwierigkeit."
+    },
+    {
+      "id": "ef-2",
+      "icon": "Clock",
+      "title": "Intelligente Zeiterfassung",
+      "description": "Erfassen Sie Ihre Arbeitszeit automatisch, indem Sie die aktive IDE-Umgebung, Kalendertermine und Designdateien verknüpfen."
+    },
+    {
+      "id": "ef-3",
+      "icon": "Compass",
+      "title": "Strategische Roadmaps",
+      "description": "Formulieren Sie mehrteilige Produkt-Roadmaps mit KI-Modellen, die auf Ihre strategischen Geschäftsziele trainiert sind."
+    }
+  ],
+  "integrations": {
+    "title": "Mühelose Konnektivität",
+    "subtitle": "Integrieren Sie Verve in weniger als drei Klicks in über 100 Standard-Tools und synchronisieren Sie alle Arbeitsabläufe sofort.",
+    "categories": ["Alle", "Kommunikation", "Entwicklung", "Design", "Daten"],
+    "items": [
+      { "name": "Slack", "category": "Kommunikation", "icon": "Slack", "desc": "Synchronisieren Sie Team-Chat und offene Aufgaben sofort." },
+      { "name": "GitHub", "category": "Entwicklung", "icon": "Github", "desc": "Verbinden Sie Pull Requests mit Aufgaben-Tickets." },
+      { "name": "Figma", "category": "Design", "icon": "Figma", "desc": "Betten Sie Mockups und Design-Updates nahtlos ein." }
+    ]
+  },
+  "pricing": {
+    "title": "Transparente Preisgestaltung",
+    "subtitle": "Wählen Sie den Plan, der zur Größe Ihres Teams und Ihren Automatisierungsanforderungen passt. Sparen Sie 20% bei jährlichen Plänen.",
+    "plans": [
+      {
+        "name": "Starter",
+        "description": "Perfekt für Einzelbenutzer und kleine Startups, die gerade erst anfangen.",
+        "price": { "monthly": 0, "yearly": 0 },
+        "billing": "/ pro Monat",
+        "cta": "Starten",
+        "features": [
+          "Bis zu 5 aktive Projekte",
+          "Grundlegende Aufgabenpriorisierung",
+          "3 aktive Tool-Integrationen",
+          "Standard-Workflow-Builder"
+        ]
+      },
+      {
+        "name": "Professional",
+        "description": "Optimiert für schnell wachsende Teams, die fortgeschrittene Automatisierungen benötigen.",
+        "price": { "monthly": 20, "yearly": 16 },
+        "billing": "/ pro Benutzer, monatlich",
+        "cta": "Starten",
+        "popular": true,
+        "features": [
+          "Unbegrenzte aktive Projekte",
+          "KI-Aufgabenpriorisierung in Echtzeit",
+          "Über 100 Integrationen",
+          "Erweiterte Automatisierung"
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Haben Sie Fragen zu Verve? Wir haben die Antworten hier für Sie vorbereitet.",
+    "items": [
+      {
+        "question": "Wie funktioniert die KI-Priorisierung?",
+        "answer": "Das proprietäre KI-Modell von Verve analysiert Aufgaben basierend auf historischer Geschwindigkeit, Fristen und Arbeitsbelastung, um Aufgaben optimal zu sortieren."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Kontaktieren Sie unser Team",
+    "subtitle": "Haben Sie Fragen zu Preisen, Funktionen oder maßgeschneiderten Lösungen? Wir sind für Sie da.",
+    "info": {
+      "address": "100 Pine Street, San Francisco, CA 94111",
+      "email": "hello@verve.ai",
+      "phone": "+1 (415) 555-0199",
+      "hours": "Mo - Fr, 9:00 - 18:00 PST"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Verve AI, Inc. Alle Rechte vorbehalten.",
+    "links": [
+      {
+        "title": "Produkt",
+        "items": [
+          { "label": "Funktionen", "href": "#features" },
+          { "label": "Preise", "href": "#pricing" }
+        ]
+      }
+    ]
+  }
+}

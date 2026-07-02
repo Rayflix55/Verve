@@ -1,0 +1,323 @@
+{
+  "company": {
+    "name": "Verve",
+    "tagline": "Plateforme de productivité propulsée par l'IA",
+    "logo": "Verve"
+  },
+  "navigation": [
+    { "label": "Accueil", "href": "#home" },
+    { "label": "Fonctionnalités", "href": "#features" },
+    { "label": "Tarifs", "href": "#pricing" },
+    { "label": "Blog", "href": "#blog" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "✨ Gestion d'équipe optimisée par l'IA",
+    "headline": "Smarter by design. Simplified by AI.",
+    "description": "Automatisez vos flux de travail, donnez la priorité à ce qui compte et décuplez la vitesse de votre équipe grâce à des assistants IA contextuels intégrés directement à vos outils quotidiens.",
+    "primaryCta": "Commencer gratuitement",
+    "secondaryCta": "Voir la démo",
+    "trustedText": "FAIT CONFIANCE PAR LES PLUS GRANDES ENTREPRISES DU MONDE"
+  },
+  "stats": [
+    {
+      "value": "5M$+",
+      "label": "RÉDUCTION DES COÛTS",
+      "sublabel": "Économies totales réalisées par nos clients entreprises à l'échelle mondiale."
+    },
+    {
+      "value": "250+",
+      "label": "TENDANCE DIGITALE",
+      "sublabel": "Automatisations s'exécutant simultanément par équipe d'entreprise active."
+    },
+    {
+      "value": "98%",
+      "label": "CONFIANCE CLIENT",
+      "sublabel": "Taux de rétention d'une année sur l'autre parmi nos partenaires du Fortune 500."
+    }
+  ],
+  "featuresOverview": [
+    {
+      "id": "fo-1",
+      "icon": "Sparkles",
+      "title": "Priorisation optimisée par l'IA",
+      "description": "Classe intelligemment vos tâches en fonction de la vitesse de l'équipe, de l'impact du projet et des délais, alignant tout le monde sur le travail à fort impact."
+    },
+    {
+      "id": "fo-2",
+      "icon": "Zap",
+      "title": "Capturez les tâches instantanément",
+      "description": "Intégrez et analysez des actions instantanément à partir de fils Slack, de courriels ou de mémos vocaux grâce à une analyse approfondie du langage naturel."
+    },
+    {
+      "id": "fo-3",
+      "icon": "Cpu",
+      "title": "Automatisation transparente",
+      "description": "Configurez des déclencheurs multi-applications complexes et des actions dynamiques avec un éditeur visuel sans code qui se comporte comme un agent humain."
+    }
+  ],
+  "productShowcase": {
+    "badge": "FONCTIONS FACILES",
+    "title": "Votre productivité, réinventée par l'IA",
+    "description": "Verve remplace les gestionnaires de tâches fragmentés et la documentation éparpillée par un espace de travail unifié et auto-optimisé.",
+    "capabilities": [
+      {
+        "icon": "Layers",
+        "title": "Tableaux de tâches contextuels",
+        "description": "Des vues de tableaux qui s'adaptent au flux de travail de votre équipe, regroupant les tâches de manière dynamique."
+      },
+      {
+        "icon": "GitBranch",
+        "title": "Bifurcation automatique de progression",
+        "description": "Synchronisez les commits git des développeurs directement avec les tickets de projet pour mettre à jour automatiquement les statuts."
+      },
+      {
+        "icon": "MessageSquare",
+        "title": "Requêtes en langage naturel",
+        "description": "Demandez 'Qu'est-ce qui bloque le lancement ?' et obtenez un résumé vérifié instantané depuis Slack et Jira."
+      },
+      {
+        "icon": "BarChart3",
+        "title": "Suivi prédictif de progression",
+        "description": "Verve analyse les vitesses passées pour vous avertir des retards potentiels de lancement 2 semaines avant qu'ils ne surviennent."
+      },
+      {
+        "icon": "Share2",
+        "title": "Graphe de connaissances universel",
+        "description": "Connecte tous les documents wiki, designs et tickets dans un graphe de recherche interactif qui apprend au fil du temps."
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Contrôles de sécurité entreprise",
+        "description": "Chiffrement de données de niveau bancaire, déploiements LLM privés, SSO et configurations d'accès strictes basées sur les rôles."
+      }
+    ]
+  },
+  "extendedFeatures": [
+    {
+      "id": "ef-1",
+      "icon": "Activity",
+      "title": "Suivi de vélocité",
+      "description": "Calcul automatique de la vélocité des sprints basé sur l'historique de réalisation des tâches et leur complexité."
+    },
+    {
+      "id": "ef-2",
+      "icon": "Clock",
+      "title": "Suivi temporel intelligent",
+      "description": "Enregistrez automatiquement l'effort en liant l'environnement IDE actif, le calendrier et les fichiers de design."
+    },
+    {
+      "id": "ef-3",
+      "icon": "Compass",
+      "title": "Feuilles de route stratégiques",
+      "description": "Formulez des feuilles de route produit sur plusieurs trimestres à l'aide de modèles d'IA entraînés sur vos objectifs."
+    },
+    {
+      "id": "ef-4",
+      "icon": "Users",
+      "title": "Optimisation des ressources",
+      "description": "Identifiez les goulots d'étranglement et les membres de l'équipe surchargés avant l'épuisement professionnel, équilibrant les charges."
+    },
+    {
+      "id": "ef-5",
+      "icon": "CheckSquare",
+      "title": "Réunions asynchrones",
+      "description": "Générez des résumés quotidiens automatiques à partir de Slack et des commits de code, réduisant le temps de réunion de 65%."
+    },
+    {
+      "id": "ef-6",
+      "icon": "Award",
+      "title": "Alignement des incitations",
+      "description": "Récompensez la réalisation des tâches et les jalons de vitesse avec des récompenses personnalisées pour motiver l'équipe."
+    }
+  ],
+  "integrations": {
+    "title": "Connectivité sans effort",
+    "subtitle": "Intégrez Verve avec plus de 100 outils standards en moins de trois clics, en synchronisant instantanément vos opérations.",
+    "categories": ["Tout", "Communication", "Développement", "Design", "Données"],
+    "items": [
+      { "name": "Slack", "category": "Communication", "icon": "Slack", "desc": "Synchronisez le chat d'équipe et les tâches en suspens instantanément." },
+      { "name": "GitHub", "category": "Développement", "icon": "Github", "desc": "Connectez les pull requests avec les tickets de tâches." },
+      { "name": "Figma", "category": "Design", "icon": "Figma", "desc": "Intégrez les maquettes et les mises à jour de design." },
+      { "name": "Gmail", "category": "Communication", "icon": "Mail", "desc": "Convertissez les e-mails entrants en tâches traçables." },
+      { "name": "Google Drive", "category": "Données", "icon": "HardDrive", "desc": "Référencez et joignez des fichiers de manière transparente." },
+      { "name": "Jira", "category": "Développement", "icon": "Kanban", "desc": "Synchronisation bidirectionnelle des tickets de backlog." },
+      { "name": "Notion", "category": "Données", "icon": "FileText", "desc": "Importez directement vos documents de design et wikis." },
+      { "name": "Linear", "category": "Développement", "icon": "CheckSquare", "desc": "Sincronisation de tickets à haute vitesse." },
+      { "name": "Zoom", "category": "Communication", "icon": "Video", "desc": "Transcrivez les réunions et extrayez des actions automatiquement." },
+      { "name": "Stripe", "category": "Données", "icon": "CreditCard", "desc": "Synchronisez la facturation client avec vos tâches de suivi." }
+    ]
+  },
+  "pricing": {
+    "title": "Tarification transparente basée sur la vélocité",
+    "subtitle": "Choisissez le plan adapté à la taille de votre équipe et à vos besoins d'automatisation. Économisez 20% sur les forfaits annuels.",
+    "plans": [
+      {
+        "name": "Starter",
+        "description": "Parfait pour les utilisateurs individuels et les petites startups qui débutent.",
+        "price": { "monthly": 0, "yearly": 0 },
+        "billing": "/ par mois",
+        "cta": "Démarrer",
+        "features": [
+          "Jusqu'à 5 projets actifs",
+          "Priorisation basique des tâches",
+          "3 intégrations d'outils actives",
+          "Créateur de flux de travail standard",
+          "Support communautaire",
+          "5 Go de stockage sécurisé"
+        ]
+      },
+      {
+        "name": "Professionnel",
+        "description": "Optimisé pour les équipes en croissance rapide nécessitant des automatisations avancées.",
+        "price": { "monthly": 20, "yearly": 16 },
+        "billing": "/ par utilisateur, par mois",
+        "cta": "Démarrer",
+        "popular": true,
+        "features": [
+          "Projets actifs illimités",
+          "Priorisation par IA en temps réel",
+          "Toutes les plus de 100 intégrations",
+          "Automatisation avancée des flux",
+          "Support prioritaire Slack 24h/24",
+          "100 Go de stockage sécurisé",
+          "Analyse de la vélocité de l'équipe",
+          "Tableaux de bord personnalisés"
+        ]
+      },
+      {
+        "name": "Entreprise",
+        "description": "Pour les grandes organisations nécessitant des modèles personnalisés et une sécurité avancée.",
+        "price": { "monthly": 49, "yearly": 39 },
+        "billing": "/ par utilisateur, par mois",
+        "cta": "Contacter les ventes",
+        "features": [
+          "Espaces de travail illimités",
+          "Entraînement de LLM personnalisé",
+          "Gestionnaire de compte dédié",
+          "Intégrations de sécurité sur mesure",
+          "Garantie de SLA de disponibilité de 99,9%",
+          "Stockage illimité",
+          "Authentification unique (SSO) SAML",
+          "Accès API personnalisé et webhooks"
+        ]
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Toutes les fonctionnalités, côte à côte",
+    "subtitle": "Comparez les détails de chaque plan pour trouver celui qui correspond le mieux à vos opérations.",
+    "categories": [
+      {
+        "name": "Fonctionnalités clés",
+        "rows": [
+          { "feature": "Projets actifs", "starter": "5 projets", "professional": "Illimités", "enterprise": "Illimités" },
+          { "feature": "Priorisation IA", "starter": "Basique", "professional": "Avancée (Temps Réel)", "enterprise": "Modèles sur mesure" },
+          { "feature": "Créateur visuel de flux", "starter": "oui", "professional": "oui", "enterprise": "oui" },
+          { "feature": "Automatisations multi-applications", "starter": "non", "professional": "oui", "enterprise": "oui" },
+          { "feature": "Requêtes en langage naturel", "starter": "100 / mois", "professional": "Illimitées", "enterprise": "Illimitées" }
+        ]
+      },
+      {
+        "name": "Intégrations et sécurité",
+        "rows": [
+          { "feature": "Intégrations standards", "starter": "3 intégrations", "professional": "Plus de 100", "enterprise": "Toutes et personnalisées" },
+          { "feature": "Accès API personnalisé", "starter": "non", "professional": "non", "enterprise": "oui" },
+          { "feature": "Sécurité SSO & SAML", "starter": "non", "professional": "non", "enterprise": "oui" },
+          { "feature": "Chiffrement des données", "starter": "Standard", "professional": "Grade bancaire AES", "enterprise": "Déploiement sur serveur privé" },
+          { "feature": "Gestion des accès (RBAC)", "starter": "non", "professional": "oui", "enterprise": "oui" }
+        ]
+      },
+      {
+        "name": "Support et stockage",
+        "rows": [
+          { "feature": "Limite de stockage", "starter": "5 Go", "professional": "100 Go", "enterprise": "Illimité" },
+          { "feature": "Support client", "starter": "E-mail (48h)", "professional": "Slack prioritaire (2h)", "enterprise": "Support dédié 24h/24" },
+          { "feature": "Rapports de vélocité", "starter": "non", "professional": "oui", "enterprise": "oui" },
+          { "feature": "Sessions de formation", "starter": "non", "professional": "non", "enterprise": "oui" },
+          { "feature": "SLA de disponibilité", "starter": "non", "professional": "non", "enterprise": "99,99%" }
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Adopté par les équipes les plus performantes",
+    "subtitle": "Découvrez comment les équipes utilisent Verve pour accélérer leur exécution au quotidien.",
+    "items": [
+      {
+        "quote": "Verve a transformé la manière dont nos équipes d'ingénierie et de produit se synchronisent. Nous avons réduit le temps des réunions quotidiennes de 70% et la vélocité a grimpé dès le premier mois.",
+        "author": "Jessica Evans",
+        "title": "Directrice de l'ingénierie produit",
+        "company": "Nexus Corp",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&h=256&q=80"
+      },
+      {
+        "quote": "Le moteur de priorisation par IA est incroyablement précis. Il gère tout le travail manuel de planification pour que nous puissions nous concentrer sur le code et le design.",
+        "author": "Marcus Thorne",
+        "title": "VP Ingénierie",
+        "company": "SaaSFlow Inc",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&h=256&q=80"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Vous avez des questions sur Verve ? Nous avons les réponses préparées ici même.",
+    "items": [
+      {
+        "question": "Comment fonctionne le moteur de priorisation par IA ?",
+        "answer": "Le modèle d'IA propriétaire de Verve analyse les tâches en fonction de la vélocité historique, des dates d'échéance, de la charge de travail et des descriptions de tâches pour trier dynamiquement le travail."
+      },
+      {
+        "question": "Pouvons-nous importer nos données depuis Jira ou Notion ?",
+        "answer": "Absolument ! Verve propose des assistants d'importation en un clic pour Jira, Notion, Linear, Trello et Monday.com."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Perspectives de l'équipe Verve",
+    "subtitle": "Découvrez des ressources, des flux de travail et des cadres de productivité conçus par nos leaders.",
+    "items": [
+      {
+        "category": "Productivité",
+        "title": "Maximiser le rendement de l'IA pour les équipes d'ingénierie",
+        "excerpt": "Comment implémenter des agents d'IA autonomes dans vos stand-ups quotidiens pour gagner du temps et accélérer vos livraisons de 40%.",
+        "readingTime": "5 min",
+        "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&h=450&q=80",
+        "author": "Jessica Evans",
+        "date": "24 juin 2026"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contactez notre équipe",
+    "subtitle": "Une question sur les tarifs, les fonctionnalités ou les solutions sur mesure ? Notre équipe est prête à vous répondre.",
+    "info": {
+      "address": "100 Pine Street, San Francisco, CA 94111",
+      "email": "hello@verve.ai",
+      "phone": "+1 (415) 555-0199",
+      "hours": "Lun - Ven, 9:00 - 18:00 PST"
+    },
+    "socials": {
+      "twitter": "https://twitter.com/vervehq",
+      "github": "https://github.com/verve-ai",
+      "linkedin": "https://linkedin.com/company/verve-ai",
+      "instagram": "https://instagram.com/verve.ai"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Verve AI, Inc. Tous droits réservés.",
+    "links": [
+      {
+        "title": "Produit",
+        "items": [
+          { "label": "Fonctionnalités", "href": "#features" },
+          { "label": "Tarifs", "href": "#pricing" },
+          { "label": "Intégrations", "href": "#features" }
+        ]
+      }
+    ]
+  }
+}

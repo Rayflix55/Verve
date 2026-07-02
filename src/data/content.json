@@ -1,0 +1,413 @@
+{
+  "company": {
+    "name": "Verve",
+    "tagline": "AI-Powered Productivity Platform",
+    "logo": "Verve"
+  },
+  "navigation": [
+    { "label": "Home", "href": "#home" },
+    { "label": "Features", "href": "#features" },
+    { "label": "Pricing", "href": "#pricing" },
+    { "label": "Blog", "href": "#blog" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "✨ AI-Powered Team Management",
+    "headline": "Smarter by design. Simplified by AI.",
+    "description": "Automate your workflows, prioritize what matters, and scale your team's velocity with context-aware AI assistants that integrate directly with your daily tool stack.",
+    "primaryCta": "Get Started Free",
+    "secondaryCta": "Watch Demo",
+    "trustedText": "TRUSTED BY THE WORLD'S LARGEST COMPANIES"
+  },
+  "stats": [
+    {
+      "value": "$5M+",
+      "label": "PERFORMANCE SNAPSHOT",
+      "sublabel": "Total cost savings driven for enterprise clients globally."
+    },
+    {
+      "value": "250+",
+      "label": "DIGITAL TREND",
+      "sublabel": "Automations running concurrently per active corporate team."
+    },
+    {
+      "value": "98%",
+      "label": "CLIENT TRUST",
+      "sublabel": "Year-over-year retention rate among Fortune 500 partners."
+    }
+  ],
+  "featuresOverview": [
+    {
+      "id": "fo-1",
+      "icon": "Sparkles",
+      "title": "AI-Powered Prioritisation",
+      "description": "Intelligently ranks your tasks based on team velocity, project impact, and deadlines, keeping everyone aligned on high-impact work."
+    },
+    {
+      "id": "fo-2",
+      "icon": "Zap",
+      "title": "Capture Tasks Instantly",
+      "description": "Injest and parse action items instantly from Slack threads, email chains, or recorded voice memos with deep natural language parsing."
+    },
+    {
+      "id": "fo-3",
+      "icon": "Cpu",
+      "title": "Seamless Automation",
+      "description": "Configure complex multi-app triggers and dynamic actions with a zero-code visual builder that behaves exactly like a human agent."
+    }
+  ],
+  "productShowcase": {
+    "badge": "EASY FEATURES",
+    "title": "Your Productivity, Reinvented with AI",
+    "description": "Verve replaces fragmented task trackers and disjointed documentation with a unified, self-optimizing workspace.",
+    "capabilities": [
+      {
+        "icon": "Layers",
+        "title": "Contextual Task Boards",
+        "description": "Board views that adapt to your team's workflow, auto-grouping related tasks dynamically."
+      },
+      {
+        "icon": "GitBranch",
+        "title": "Automated Progress Branching",
+        "description": "Sync developer git commits directly with project manager tickets to automatically update issue statuses."
+      },
+      {
+        "icon": "MessageSquare",
+        "title": "Natural Language Queries",
+        "description": "Ask 'What is blocking the checkout launch?' and get an instant, verified summary from your Slack and Jira."
+      },
+      {
+        "icon": "BarChart3",
+        "title": "Predictive Burn-downs",
+        "description": "Verve analyzes past velocities to warn you about potential launch delays 2 weeks before they occur."
+      },
+      {
+        "icon": "Share2",
+        "title": "Universal Knowledge Graph",
+        "description": "Connects all wiki docs, designs, and tickets into an interactive search graph that learns as you scale."
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Enterprise Security Controls",
+        "description": "Bank-grade data encryption, private LLM deployments, SSO, and strict role-based access configurations."
+      }
+    ]
+  },
+  "extendedFeatures": [
+    {
+      "id": "ef-1",
+      "icon": "Activity",
+      "title": "Velocity Tracking",
+      "description": "Automatic sprint velocity calculation based on historical task completion and relative task difficulty."
+    },
+    {
+      "id": "ef-2",
+      "icon": "Clock",
+      "title": "Smart Time Ingestion",
+      "description": "Log effort automatically by linking active IDE workspace, calendar appointments, and design file sessions."
+    },
+    {
+      "id": "ef-3",
+      "icon": "Compass",
+      "title": "Strategic Roadmapping",
+      "description": "Formulate multi-quarter product roadmaps using AI models trained on your strategic business goals."
+    },
+    {
+      "id": "ef-4",
+      "icon": "Users",
+      "title": "Resource Optimization",
+      "description": "Identify bottlenecks and over-allocated team members before burnout happens, balancing workloads instantly."
+    },
+    {
+      "id": "ef-5",
+      "icon": "CheckSquare",
+      "title": "Asynchronous Standups",
+      "description": "Generate automated daily summaries from slack logs and code commits, cutting active meeting times by 65%."
+    },
+    {
+      "id": "ef-6",
+      "icon": "Award",
+      "title": "Incentive Alignment",
+      "description": "Reward task completions and velocity benchmarks with custom rewards that keep team morale high."
+    }
+  ],
+  "integrations": {
+    "title": "Effortless Connectivity",
+    "subtitle": "Integrate Verve with over 100+ standard tools in less than three clicks, syncing all workspace operations instantly.",
+    "categories": ["All", "Communication", "Development", "Design", "Data"],
+    "items": [
+      { "name": "Slack", "category": "Communication", "icon": "Slack", "desc": "Sync team chat and action items instantly." },
+      { "name": "GitHub", "category": "Development", "icon": "Github", "desc": "Connect pull requests to task tickets." },
+      { "name": "Figma", "category": "Design", "icon": "Figma", "desc": "Embed mockups and design updates." },
+      { "name": "Gmail", "category": "Communication", "icon": "Mail", "desc": "Convert incoming emails into trackable tasks." },
+      { "name": "Google Drive", "category": "Data", "icon": "HardDrive", "desc": "Reference and attach files seamlessly." },
+      { "name": "Jira", "category": "Development", "icon": "Kanban", "desc": "Bi-directional synchronization of backlog cards." },
+      { "name": "Notion", "category": "Data", "icon": "FileText", "desc": "Import design documents and wikis directly." },
+      { "name": "Linear", "category": "Development", "icon": "CheckSquare", "desc": "High-velocity ticketing synchronization." },
+      { "name": "Zoom", "category": "Communication", "icon": "Video", "desc": "Auto-transcribe meetings and extract action items." },
+      { "name": "Stripe", "category": "Data", "icon": "CreditCard", "desc": "Sync customer billing events to task flows." }
+    ]
+  },
+  "pricing": {
+    "title": "Transparent, Velocity-Driven Pricing",
+    "subtitle": "Choose the tier that fits your team's size and automation needs. Save 20% on yearly plans.",
+    "plans": [
+      {
+        "name": "Starter",
+        "description": "Perfect for individuals and small startups getting started.",
+        "price": { "monthly": 0, "yearly": 0 },
+        "billing": "/ per month",
+        "cta": "Get Started",
+        "features": [
+          "Up to 5 active projects",
+          "Basic task prioritization",
+          "3 active tool integrations",
+          "Standard workflow builder",
+          "Community forum support",
+          "5GB secure file storage"
+        ]
+      },
+      {
+        "name": "Professional",
+        "description": "Optimized for high-growth teams requiring advanced automations.",
+        "price": { "monthly": 20, "yearly": 16 },
+        "billing": "/ per user, monthly",
+        "cta": "Get Started",
+        "popular": true,
+        "features": [
+          "Unlimited active projects",
+          "AI priority task scoring",
+          "All 100+ tool integrations",
+          "Advanced workflow automation",
+          "Priority 24/7 slack support",
+          "100GB secure file storage",
+          "Team velocity analytics",
+          "Custom dashboard views"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "description": "For organizations requiring custom models, SLAs, and security.",
+        "price": { "monthly": 49, "yearly": 39 },
+        "billing": "/ per user, monthly",
+        "cta": "Contact Sales",
+        "features": [
+          "Unlimited active workspaces",
+          "Custom LLM training and tuning",
+          "Dedicated Account Manager",
+          "Custom security integrations",
+          "99.9% uptime SLA guarantee",
+          "Unlimited storage capacity",
+          "Single Sign-On (SSO) SAML",
+          "Custom API access & webhooks"
+        ]
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Every Feature, Side-by-Side",
+    "subtitle": "Compare plan details to see which one works best for your business operations.",
+    "categories": [
+      {
+        "name": "Core Features",
+        "rows": [
+          { "feature": "Active Projects", "starter": "5 Projects", "professional": "Unlimited", "enterprise": "Unlimited" },
+          { "feature": "AI Task Prioritization", "starter": "Basic", "professional": "Advanced (Real-time)", "enterprise": "Custom Models" },
+          { "feature": "Visual Workflow Builder", "starter": "yes", "professional": "yes", "enterprise": "yes" },
+          { "feature": "Multi-App Automations", "starter": "no", "professional": "yes", "enterprise": "yes" },
+          { "feature": "Natural Language Ingestion", "starter": "100 / mo", "professional": "Unlimited", "enterprise": "Unlimited" }
+        ]
+      },
+      {
+        "name": "Integrations & Security",
+        "rows": [
+          { "feature": "Standard Integrations", "starter": "3 Integrations", "professional": "All 100+", "enterprise": "All 100+ & Custom" },
+          { "feature": "Custom API Access", "starter": "no", "professional": "no", "enterprise": "yes" },
+          { "feature": "SSO & SAML Security", "starter": "no", "professional": "no", "enterprise": "yes" },
+          { "feature": "Data Encryption", "starter": "Standard", "professional": "Bank-Grade AES", "enterprise": "Private Server Deployment" },
+          { "feature": "Role-Based Access Control", "starter": "no", "professional": "yes", "enterprise": "yes" }
+        ]
+      },
+      {
+        "name": "Support & Storage",
+        "rows": [
+          { "feature": "Secure Storage Limit", "starter": "5 GB", "professional": "100 GB", "enterprise": "Unlimited" },
+          { "feature": "Customer Support", "starter": "Email (48h)", "professional": "Priority Slack (2h)", "enterprise": "Dedicated 24/7 Hotline" },
+          { "feature": "Team Velocity Reports", "starter": "no", "professional": "yes", "enterprise": "yes" },
+          { "feature": "Custom Training Sessions", "starter": "no", "professional": "no", "enterprise": "yes" },
+          { "feature": "SLA Uptime Guarantee", "starter": "no", "professional": "no", "enterprise": "99.99%" }
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Loved by forward-thinking teams",
+    "subtitle": "Read how high-performance companies use Verve to unlock operational speed.",
+    "items": [
+      {
+        "quote": "Verve fundamentally restructured how our engineering and product teams sync. We cut down synchronous standup time by 70%, and developer velocity shot up within the very first month.",
+        "author": "Jessica Evans",
+        "title": "Director of Product Engineering",
+        "company": "Nexus Corp",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&h=256&q=80"
+      },
+      {
+        "quote": "The AI prioritisation engine is eerily accurate. It handles the manual back-and-forth planning so we can focus strictly on coding and designing. Highly recommend to any growing engineering organization.",
+        "author": "Marcus Thorne",
+        "title": "VP of Engineering",
+        "company": "SaaSFlow Inc",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&h=256&q=80"
+      },
+      {
+        "quote": "Integrating Verve took our distributed customer support and design teams from separate communication silos into one shared source of truth. The Slack integration is absolute magic.",
+        "author": "Alina Vance",
+        "title": "Co-Founder",
+        "company": "DesignSync",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=256&h=256&q=80"
+      },
+      {
+        "quote": "We consolidated three separate project tools into Verve. It saved us thousands in monthly licensing fees, and the predictive burn-down charts have saved two critical product launches already.",
+        "author": "David Kim",
+        "title": "VP of Operations",
+        "company": "CloudScale Solutions",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&h=256&q=80"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Got questions about Verve? We have got the answers right here.",
+    "items": [
+      {
+        "question": "How does the AI prioritizing engine work?",
+        "answer": "Verve's proprietary AI model analyzes tasks based on historical velocity, due dates, assignee workloads, and task descriptions. It then scores and sorts tasks dynamically to maximize project progress."
+      },
+      {
+        "question": "Can we import our data from Jira or Notion?",
+        "answer": "Absolutely! Verve has built-in import wizards for Jira, Notion, Linear, Trello, and Monday.com. You can import all your tasks, attachments, comments, and historical metrics in less than 5 minutes."
+      },
+      {
+        "question": "Is our team's data secure with Verve?",
+        "answer": "Security is our highest priority. All data is encrypted in transit and at rest using AES-256 standard encryption. We strictly comply with SOC2, ISO 27001, and GDPR. We never use your proprietary data to train public models."
+      },
+      {
+        "question": "Do you offer private cloud deployments?",
+        "answer": "Yes, for Enterprise customers we offer private VPC deployments on AWS, Google Cloud, and Microsoft Azure, allowing you to run Verve within your own secure network parameter."
+      },
+      {
+        "question": "What is the 20% yearly discount option?",
+        "answer": "When you choose our annual billing cycle instead of monthly billing, we reduce your pricing by 20% on both our Professional and Enterprise tiers, which is applied instantly at checkout."
+      },
+      {
+        "question": "Is there a limit on active integrations on the Free plan?",
+        "answer": "Yes, our Free Starter plan supports up to 3 active integrations simultaneously. To connect more of your daily tools, upgrade to our Professional plan which features unlimited active integrations."
+      },
+      {
+        "question": "Can I cancel or change my plan at any time?",
+        "answer": "Yes, there are no long-term contracts. You can upgrade, downgrade, or cancel your subscription at any time directly through your billing settings panel."
+      },
+      {
+        "question": "Do you offer custom pricing or team discounts?",
+        "answer": "Yes, for teams with more than 100 users, we offer high-volume enterprise discounts. Contact our sales department through our contact form and we will design a plan that matches your needs."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Insights from the Verve Team",
+    "subtitle": "Discover resources, workflows, and productivity frameworks designed by our leading engineers.",
+    "items": [
+      {
+        "category": "Productivity",
+        "title": "Maximising AI Refinement on Your Engineering Teams",
+        "excerpt": "How to deploy autonomous AI agents inside developer standups to save time, reduce slack fatigue, and speed up features by 40%.",
+        "readingTime": "5 min read",
+        "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&h=450&q=80",
+        "author": "Jessica Evans",
+        "date": "Jun 24, 2026"
+      },
+      {
+        "category": "Engineering",
+        "title": "Secrets of Seamless Integration and Bi-directional Sync",
+        "excerpt": "A deep dive into how Verve synchronizes task states across Jira, GitHub, and Slack concurrently in less than 200 milliseconds.",
+        "readingTime": "8 min read",
+        "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&h=450&q=80",
+        "author": "Marcus Thorne",
+        "date": "Jun 18, 2026"
+      },
+      {
+        "category": "Culture",
+        "title": "Why Asynchronous Workflows are the Real Competitive Advantage",
+        "excerpt": "Ditch the traditional sync meetings. Learn how high-velocity remote companies align across 8 timezone gaps with Verve's graph search.",
+        "readingTime": "6 min read",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&h=450&q=80",
+        "author": "Alina Vance",
+        "date": "May 30, 2026"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in touch with our team",
+    "subtitle": "Have a question about pricing, features, or custom enterprise solutions? We are here to help.",
+    "info": {
+      "address": "100 Pine Street, San Francisco, CA 94111",
+      "email": "hello@verve.ai",
+      "phone": "+1 (415) 555-0199",
+      "hours": "Mon - Fri, 9:00 AM - 6:00 PM PST"
+    },
+    "socials": {
+      "twitter": "https://twitter.com/vervehq",
+      "github": "https://github.com/verve-ai",
+      "linkedin": "https://linkedin.com/company/verve-ai",
+      "instagram": "https://instagram.com/verve.ai"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Verve AI, Inc. All rights reserved.",
+    "links": [
+      {
+        "title": "Product",
+        "items": [
+          { "label": "Features", "href": "#features" },
+          { "label": "Pricing", "href": "#pricing" },
+          { "label": "Integrations", "href": "#features" },
+          { "label": "Changelog", "href": "#" },
+          { "label": "Docs", "href": "#" }
+        ]
+      },
+      {
+        "title": "Company",
+        "items": [
+          { "label": "About", "href": "#" },
+          { "label": "Blog", "href": "#blog" },
+          { "label": "Careers", "href": "#" },
+          { "label": "Press", "href": "#" },
+          { "label": "Partners", "href": "#" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "items": [
+          { "label": "Community", "href": "#" },
+          { "label": "Help Center", "href": "#" },
+          { "label": "Security", "href": "#" },
+          { "label": "Status", "href": "#" },
+          { "label": "API Docs", "href": "#" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "items": [
+          { "label": "Privacy Policy", "href": "#" },
+          { "label": "Terms of Service", "href": "#" },
+          { "label": "GDPR Compliance", "href": "#" },
+          { "label": "Trust Center", "href": "#" },
+          { "label": "Contact", "href": "#contact" }
+        ]
+      }
+    ]
+  }
+}

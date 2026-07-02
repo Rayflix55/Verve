@@ -1,0 +1,164 @@
+{
+  "company": {
+    "name": "Verve",
+    "tagline": "AI 驱动的智能效率平台",
+    "logo": "Verve"
+  },
+  "navigation": [
+    { "label": "首页", "href": "#home" },
+    { "label": "核心功能", "href": "#features" },
+    { "label": "价格方案", "href": "#pricing" },
+    { "label": "官方博客", "href": "#blog" },
+    { "label": "联系我们", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "✨ AI 驱动团队管理效率",
+    "headline": "Smarter by design. Simplified by AI.",
+    "description": "自动化您的工作流程，优先处理重要事务，并利用直接与日常工具集成的上下文感知 AI 助手提升团队执行速度。",
+    "primaryCta": "免费开始使用",
+    "secondaryCta": "观看演示视频",
+    "trustedText": "全球顶尖企业一致信赖"
+  },
+  "stats": [
+    {
+      "value": "$5M+",
+      "label": "成本节省",
+      "sublabel": "为全球企业客户带来的总运营成本节省。"
+    },
+    {
+      "value": "250+",
+      "label": "数字化趋势",
+      "sublabel": "每个活跃的企业团队同时运行的自动化流程数量。"
+    },
+    {
+      "value": "98%",
+      "label": "客户信赖度",
+      "sublabel": "财富 500 强合作伙伴的年度续签保留率。"
+    }
+  ],
+  "featuresOverview": [
+    {
+      "id": "fo-1",
+      "icon": "Sparkles",
+      "title": "AI 智能优先级排序",
+      "description": "根据团队效率、项目影响力和截止日期，智能对任务进行排序，确保全员专注于高价值工作。"
+    },
+    {
+      "id": "fo-2",
+      "icon": "Zap",
+      "title": "即时任务捕获",
+      "description": "通过深度自然语言解析，即时从 Slack 对话、邮件链或语音备忘录中提取并解析待办事项。"
+    },
+    {
+      "id": "fo-3",
+      "icon": "Cpu",
+      "title": "无缝自动化工作流",
+      "description": "使用零代码的可视化构建器，配置复杂的跨应用触发和动态操作，其行为与人类助手完全一致。"
+    }
+  ],
+  "productShowcase": {
+    "badge": "简易功能",
+    "title": "利用 AI 重塑您的团队效率",
+    "description": "Verve 用一个统一、自我优化的工作区代替了零散的任务跟踪和不连贯的文档管理。",
+    "capabilities": [
+      {
+        "icon": "Layers",
+        "title": "上下文任务看板",
+        "description": "适应团队工作流的看板视图，自动且动态地对相关任务进行分组。"
+      },
+      {
+        "icon": "GitBranch",
+        "title": "自动化进度分支",
+        "description": "直接将开发人员的 Git 提交同步到项目经理的任务卡，以自动更新任务状态。"
+      }
+    ]
+  },
+  "extendedFeatures": [
+    {
+      "id": "ef-1",
+      "icon": "Activity",
+      "title": "执行速度跟踪",
+      "description": "根据历史任务完成情况和相对难度，自动计算迭代周期的执行速度。"
+    },
+    {
+      "id": "ef-2",
+      "icon": "Clock",
+      "title": "智能工时跟踪",
+      "description": "通过连接活跃的 IDE 开发环境、日历和设计文件，自动记录所付出的努力。"
+    }
+  ],
+  "integrations": {
+    "title": "轻松连接一切工具",
+    "subtitle": "只需不到三次点击，即可将 Verve 与 100 多种标准工具集成，立即同步您的业务流程。",
+    "categories": ["全部", "沟通交流", "软件开发", "产品设计", "数据管理"],
+    "items": [
+      { "name": "Slack", "category": "沟通交流", "icon": "Slack", "desc": "即时同步团队聊天和待办任务。" },
+      { "name": "GitHub", "category": "软件开发", "icon": "Github", "desc": "将代码拉取请求与任务卡片关联。" }
+    ]
+  },
+  "pricing": {
+    "title": "透明的价格方案",
+    "subtitle": "选择适合您团队规模和自动化需求的方案。年度方案可享受八折优惠。",
+    "plans": [
+      {
+        "name": "入门版",
+        "description": "非常适合刚开始创业的个人用户和小型初创团队。",
+        "price": { "monthly": 0, "yearly": 0 },
+        "billing": "/ 月",
+        "cta": "立即开始",
+        "features": [
+          "最多 5 个活跃项目",
+          "基础任务优先级排序",
+          "3 个活跃的工具集成",
+          "标准工作流构建器"
+        ]
+      },
+      {
+        "name": "专业版",
+        "description": "针对需要高级自动化工作流的快速成长型团队进行优化。",
+        "price": { "monthly": 20, "yearly": 16 },
+        "billing": "/ 成员 / 月",
+        "cta": "立即开始",
+        "popular": true,
+        "features": [
+          "无限制的活跃项目",
+          "实时 AI 任务优先级排序",
+          "支持 100+ 工具集成",
+          "高级自动化流构建"
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "title": "常见问题解答",
+    "subtitle": "对 Verve 有任何疑问？我们在这里为您准备了详尽解答。",
+    "items": [
+      {
+        "question": "AI 优先级排序是如何工作的？",
+        "answer": "Verve 的专有 AI 模型会根据历史执行速度、截止日期和工作量分析任务，动态排序工作。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我们的团队",
+    "subtitle": "关于价格、功能或定制方案有任何疑问？我们的团队随时为您解答。",
+    "info": {
+      "address": "100 Pine Street, San Francisco, CA 94111",
+      "email": "hello@verve.ai",
+      "phone": "+1 (415) 555-0199",
+      "hours": "工作日, 9:00 - 18:00 PST"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Verve AI, Inc. 保留所有权利。",
+    "links": [
+      {
+        "title": "产品",
+        "items": [
+          { "label": "核心功能", "href": "#features" },
+          { "label": "价格方案", "href": "#pricing" }
+        ]
+      }
+    ]
+  }
+}
