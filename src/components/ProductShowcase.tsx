@@ -114,7 +114,14 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
   };
 
   return (
-    <section id="showcase" className="py-24 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="showcase"
+      className="py-24 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Decorative Orbs */}
       <div className="absolute top-1/4 -left-36 -z-10 w-96 h-96 rounded-full bg-magenta/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-36 -z-10 w-96 h-96 rounded-full bg-cyan/5 blur-[120px] pointer-events-none" />
@@ -296,6 +303,6 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -113,7 +113,14 @@ function StatCounter({ value, label, sublabel, index }: StatCounterProps) {
 
 export function Stats({ data }: StatsProps) {
   return (
-    <section id="stats" className="py-20 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="stats"
+      className="py-20 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[600px] h-48 rounded-full bg-magenta/5 blur-[100px] pointer-events-none" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -127,6 +134,6 @@ export function Stats({ data }: StatsProps) {
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

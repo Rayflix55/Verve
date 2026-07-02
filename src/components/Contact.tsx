@@ -64,7 +64,14 @@ export function Contact({ data }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-24 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="contact"
+      className="py-24 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Background radial glow */}
       <div className="absolute bottom-1/4 -right-48 -z-10 w-96 h-96 rounded-full bg-magenta/10 blur-[130px] pointer-events-none" />
 
@@ -345,6 +352,6 @@ export function Contact({ data }: ContactProps) {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

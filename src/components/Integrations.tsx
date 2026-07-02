@@ -56,7 +56,14 @@ export function Integrations({ data }: IntegrationsProps) {
       : data.items.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="integrations" className="py-24 relative overflow-hidden bg-neutral-50/50 dark:bg-neutral-950/40 border-y border-neutral-200/40 dark:border-neutral-900/40">
+    <motion.section
+      id="integrations"
+      className="py-24 relative overflow-hidden bg-neutral-50/50 dark:bg-neutral-950/40 border-y border-neutral-200/40 dark:border-neutral-900/40"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[600px] h-96 rounded-full bg-cyan/5 blur-[120px] pointer-events-none" />
 
@@ -146,6 +153,6 @@ export function Integrations({ data }: IntegrationsProps) {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

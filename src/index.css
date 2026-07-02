@@ -1,9 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Merside";
+  src: url("https://db.onlinewebfonts.com/t/ecda396328328bf589fbfd9061030e20.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/ecda396328328bf589fbfd9061030e20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Merside", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Merside", "Playfair Display", "Georgia", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Ensure premium readability and contrast of writeups, descriptions, and paragraphs across all modes */
+p, .writeup, .text-readable {
+  color: #2d3748 !important; /* Warm deep slate gray for supreme readability in light mode */
+}
+
+.dark p, .dark .writeup, .dark .text-readable {
+  color: #f1f5f9 !important; /* Crisp clear slate white for premium contrast in dark mode */
+}
+
+/* Override Tailwind low-contrast utility colors for maximum human legibility */
+.text-neutral-500, .text-gray-500, .text-neutral-400, .text-gray-400 {
+  color: #374151 !important; /* Deep neutral for high-contrast reading in light mode */
+}
+
+.dark .text-neutral-400, .dark .text-gray-400, .dark .text-neutral-500, .dark .text-gray-500 {
+  color: #cbd5e1 !important; /* Bright crisp slate-300 for dark mode */
+}
+
+.text-neutral-600, .text-gray-600 {
+  color: #1f2937 !important; /* Rich deep neutral for main copies in light mode */
+}
+
+.dark .text-neutral-300, .dark .text-gray-300 {
+  color: #f8fafc !important; /* Absolute bright slate-50 for dark mode descriptions */
+}
+
+/* Clean heading aesthetics for Merside serif display */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
 }
 
 /* Custom scroll bar utility */

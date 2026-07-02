@@ -44,7 +44,14 @@ export function ExtendedFeatures({ data }: ExtendedFeaturesProps) {
   ];
 
   return (
-    <section id="features-extended" className="py-24 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="features-extended"
+      className="py-24 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
 
@@ -95,6 +102,6 @@ export function ExtendedFeatures({ data }: ExtendedFeaturesProps) {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

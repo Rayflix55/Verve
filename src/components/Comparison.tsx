@@ -50,7 +50,14 @@ export function Comparison({ data }: ComparisonProps) {
   };
 
   return (
-    <section id="comparison" className="py-24 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="comparison"
+      className="py-24 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Header */}
       <SectionHeaderReveal>
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5">
@@ -146,6 +153,6 @@ export function Comparison({ data }: ComparisonProps) {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

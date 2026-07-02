@@ -1,6 +1,7 @@
 import { Accordion } from './UI/Accordion';
 import React from 'react';
 import { SectionHeaderReveal } from './UI/SectionHeaderReveal';
+import { motion } from 'motion/react';
 
 interface FAQItem {
   question: string;
@@ -19,7 +20,14 @@ interface FAQProps {
 
 export function FAQ({ data }: FAQProps) {
   return (
-    <section id="faq" className="py-24 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="faq"
+      className="py-24 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Decorative Blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-96 h-96 rounded-full bg-cyan/5 blur-[120px] pointer-events-none" />
 
@@ -35,6 +43,6 @@ export function FAQ({ data }: FAQProps) {
 
       {/* Reusable Accordion */}
       <Accordion items={data.items} />
-    </section>
+    </motion.section>
   );
 }

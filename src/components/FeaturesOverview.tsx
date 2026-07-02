@@ -22,7 +22,14 @@ export function FeaturesOverview({ data }: FeaturesOverviewProps) {
   };
 
   return (
-    <section id="features" className="py-24 relative max-w-7xl mx-auto px-6">
+    <motion.section
+      id="features"
+      className="py-24 relative max-w-7xl mx-auto px-6"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Background decoration */}
       <div className="absolute top-10 left-1/3 -z-10 w-80 h-80 rounded-full bg-cyan/5 blur-[100px] pointer-events-none" />
 
@@ -73,6 +80,6 @@ export function FeaturesOverview({ data }: FeaturesOverviewProps) {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

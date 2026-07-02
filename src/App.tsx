@@ -1,4 +1,5 @@
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ScrollProgress } from './components/UI/ScrollProgress';
 import { BackToTop } from './components/UI/BackToTop';
 import { Navigation } from './components/Navigation';
@@ -17,9 +18,9 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { InteractiveAnimatedBackground } from './components/InteractiveAnimatedBackground';
 
-import content from './data/content.json';
+function AppContent() {
+  const { content, language } = useLanguage();
 
-export default function App() {
   const enrichedProductShowcase = {
     title: content.productShowcase.title,
     subtitle: content.productShowcase.description,
@@ -32,55 +33,69 @@ export default function App() {
       screenshotPlaceholder: `https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80`,
       tabDetails: [
         {
-          title: "Overview",
-          desc: `Deploy ${cap.title.toLowerCase()} to unify your team's real-time action items.`
+          title: language === 'es' ? "General" : "Overview",
+          desc: language === 'es' 
+            ? `Implemente ${cap.title.toLowerCase()} para unificar los elementos de acción en tiempo real de su equipo.`
+            : `Deploy ${cap.title.toLowerCase()} to unify your team's real-time action items.`
         },
         {
-          title: "Configuration",
-          desc: "Customize priority alerts, sync frequency, and notification mappings with single-click ease."
+          title: language === 'es' ? "Configuración" : "Configuration",
+          desc: language === 'es'
+            ? "Personalice alertas de prioridad, frecuencia de sincronización y asignación de notificaciones con un solo clic."
+            : "Customize priority alerts, sync frequency, and notification mappings with single-click ease."
         },
         {
-          title: "Telemetry",
-          desc: "Track team velocity metrics, automated handoff performance, and integration response times."
+          title: language === 'es' ? "Telemetría" : "Telemetry",
+          desc: language === 'es'
+            ? "Realice un seguimiento de las métricas de velocidad del equipo, rendimiento de entrega y tiempos de respuesta de integración."
+            : "Track team velocity metrics, automated handoff performance, and integration response times."
         }
       ]
     }))
   };
 
   return (
+    <div className="min-h-screen bg-white text-neutral-800 dark:bg-transparent dark:text-neutral-200 transition-colors duration-300 antialiased font-sans" id="app-root">
+      {/* Futuristic Interactive Background */}
+      <InteractiveAnimatedBackground />
+
+      {/* Scroll Progress Indicator */}
+      <ScrollProgress />
+
+      {/* Global Floating Back to Top Button */}
+      <BackToTop />
+
+      {/* Sticky Header Navigation */}
+      <Navigation links={content.navigation} />
+
+      {/* Core Main Sections */}
+      <main id="main-content">
+        <Hero data={content.hero} />
+        <Stats data={content.stats} />
+        <FeaturesOverview data={content.featuresOverview} />
+        <ProductShowcase data={enrichedProductShowcase} />
+        <ExtendedFeatures data={content.extendedFeatures} />
+        <Integrations data={content.integrations} />
+        <Pricing data={content.pricing} />
+        <Comparison data={content.comparison} />
+        <Testimonials data={content.testimonials} />
+        <FAQ data={content.faq} />
+        <Blog data={content.blog} />
+        <Contact data={content.contact} />
+      </main>
+
+      {/* Shared Footer block */}
+      <Footer data={content.footer} companyName={content.company.name} />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white text-neutral-800 dark:bg-transparent dark:text-neutral-200 transition-colors duration-300 antialiased font-sans" id="app-root">
-        {/* Futuristic Interactive Background */}
-        <InteractiveAnimatedBackground />
-
-        {/* Scroll Progress Indicator */}
-        <ScrollProgress />
-
-        {/* Global Floating Back to Top Button */}
-        <BackToTop />
-
-        {/* Sticky Header Navigation */}
-        <Navigation links={content.navigation} />
-
-        {/* Core Main Sections */}
-        <main id="main-content">
-          <Hero data={content.hero} />
-          <Stats data={content.stats} />
-          <FeaturesOverview data={content.featuresOverview} />
-          <ProductShowcase data={enrichedProductShowcase} />
-          <ExtendedFeatures data={content.extendedFeatures} />
-          <Integrations data={content.integrations} />
-          <Pricing data={content.pricing} />
-          <Comparison data={content.comparison} />
-          <Testimonials data={content.testimonials} />
-          <FAQ data={content.faq} />
-          <Blog data={content.blog} />
-          <Contact data={content.contact} />
-        </main>
-
-        {/* Shared Footer block */}
-        <Footer data={content.footer} companyName={content.company.name} />
-      </div>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

@@ -24,7 +24,14 @@ interface BlogProps {
 
 export function Blog({ data }: BlogProps) {
   return (
-    <section id="blog" className="py-24 relative overflow-hidden bg-neutral-50/50 dark:bg-neutral-950/40 border-y border-neutral-200/40 dark:border-neutral-900/40">
+    <motion.section
+      id="blog"
+      className="py-24 relative overflow-hidden bg-neutral-50/50 dark:bg-neutral-950/40 border-y border-neutral-200/40 dark:border-neutral-900/40"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       {/* Background decorations */}
       <div className="absolute top-1/4 left-1/4 -z-10 w-80 h-80 rounded-full bg-magenta/5 blur-[100px] pointer-events-none" />
 
@@ -103,6 +110,6 @@ export function Blog({ data }: BlogProps) {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

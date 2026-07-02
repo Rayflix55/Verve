@@ -29,10 +29,14 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
   const firstRowItems = [...data.items, ...data.items, ...data.items];
 
   return (
-    <section
+    <motion.section
       ref={containerRef}
       id="testimonials"
       className="py-24 relative overflow-hidden transition-colors duration-300"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {/* Inline styles for the self-contained continuous marquee keyframes */}
       <style>{`
@@ -145,6 +149,6 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import { Button } from './UI/Button';
+import { InteractiveHeroBackground } from './InteractiveHeroBackground';
 
 interface HeroData {
   badge: string;
@@ -30,6 +31,9 @@ export function Hero({ data }: HeroProps) {
       id="home"
       className="relative min-h-screen pt-28 pb-16 flex flex-col justify-center items-center overflow-hidden"
     >
+      {/* Interactive Mouse-Following Particle System */}
+      <InteractiveHeroBackground />
+
       {/* Decorative Glow Bubbles */}
       <div className="absolute top-1/4 -left-48 -z-10 w-96 h-96 rounded-full bg-magenta/15 blur-[120px] animate-pulse pointer-events-none" />
       <div className="absolute bottom-1/4 -right-48 -z-10 w-96 h-96 rounded-full bg-cyan/10 blur-[120px] animate-pulse pointer-events-none" />
@@ -58,7 +62,7 @@ export function Hero({ data }: HeroProps) {
           id="hero-headline"
         >
           Smarter by design.<br />
-          <span className="bg-gradient-to-r from-magenta via-purple-500 to-cyan bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent dark:from-pink-400 dark:via-purple-400 dark:to-cyan-300 drop-shadow-[0_1px_1px_rgba(255,255,255,0.15)] dark:drop-shadow-none">
             Simplified by AI.
           </span>
         </motion.h1>
