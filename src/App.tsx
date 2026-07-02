@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ScrollProgress } from './components/UI/ScrollProgress';
@@ -17,6 +19,7 @@ import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { InteractiveAnimatedBackground } from './components/InteractiveAnimatedBackground';
+import { SplashScreen } from './components/SplashScreen';
 
 function AppContent() {
   const { content, language } = useLanguage();
@@ -91,10 +94,27 @@ function AppContent() {
 }
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <AppContent />
+        <AnimatePresence mode="wait">
+          {showSplash && (
+            <SplashScreen key="splash" onComplete={() => setShowSplash(false)} />
+          )}
+        </AnimatePresence>
+
+        {!showSplash && (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <AppContent />
+          </motion.div>
+        )}
       </LanguageProvider>
     </ThemeProvider>
   );

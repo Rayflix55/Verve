@@ -78,27 +78,27 @@ export function ExtendedFeatures({ data }: ExtendedFeaturesProps) {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
             whileHover={{ y: -4 }}
-            className={`relative rounded-2xl border border-neutral-200/50 bg-white/60 dark:border-neutral-800/50 dark:bg-neutral-900/40 backdrop-blur-md p-6.5 overflow-hidden transition-all duration-300 flex flex-col hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.05)] ${glowBorderColors[idx % glowBorderColors.length]}`}
+            className="relative group premium-glow-card p-6.5 flex flex-col"
             id={`extended-feature-card-${item.id}`}
           >
+            {/* Dynamic ambient color gradients */}
+            <div className="card-ambient-overlay" />
+
             {/* Accent colored left border */}
-            <div className={`absolute left-0 top-0 bottom-0 w-1 ${leftBorderColors[idx % leftBorderColors.length]}`} />
+            <div className={`absolute left-0 top-0 bottom-0 w-1 ${leftBorderColors[idx % leftBorderColors.length]} z-20`} />
 
             {/* Icon */}
-            <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/30 mb-5">
+            <div className="relative z-10 flex items-center justify-center h-10 w-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/30 mb-5">
               {iconMap[item.icon] || <Activity className="h-5 w-5" />}
             </div>
 
-            <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-2 tracking-tight">
+            <h3 className="relative z-10 text-lg font-bold text-neutral-900 dark:text-white mb-2 tracking-tight group-hover:text-magenta transition-colors duration-200">
               {item.title}
             </h3>
 
-            <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed font-normal flex-grow">
+            <p className="relative z-10 text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed font-normal flex-grow">
               {item.description}
             </p>
-
-            {/* Small subtle decorative circle */}
-            <div className="absolute -bottom-6 -right-6 -z-10 h-14 w-14 rounded-full bg-neutral-100 dark:bg-neutral-850 pointer-events-none" />
           </motion.div>
         ))}
       </div>

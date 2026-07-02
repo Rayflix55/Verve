@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { Button } from './UI/Button';
 import { ThemeToggle } from './UI/ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage, Language } from '../context/LanguageContext';
 import { Logo } from './Logo';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -16,13 +16,30 @@ interface NavigationProps {
   links: NavLink[];
 }
 
+const LANGUAGES = [
+  { code: 'en' as Language, name: 'English', short: 'EN', flag: '🇺🇸' },
+  { code: 'es' as Language, name: 'Español', short: 'ES', flag: '🇪🇸' },
+  { code: 'fr' as Language, name: 'Français', short: 'FR', flag: '🇫🇷' },
+  { code: 'de' as Language, name: 'Deutsch', short: 'DE', flag: '🇩🇪' },
+  { code: 'hi' as Language, name: 'हिन्दी', short: 'HI', flag: '🇮🇳' },
+  { code: 'zh' as Language, name: '中文', short: 'ZH', flag: '🇨🇳' },
+];
+
 export function Navigation({ links }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
+
+  const desktopLangRef = useRef<HTMLDivElement>(null);
+  const mobileLangRef = useRef<HTMLDivElement>(null);
+
   const { theme } = useTheme();
   const { language, setLanguage } = useLanguage();
+
+  const currentLangObj = LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +55,7 @@ export function Navigation({ links }: NavigationProps) {
       // Hide navigation on scroll down, show on scroll up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false); // scrolling down
+        setIsLangOpen(false); // close dropdown when scrolling
       } else {
         setIsVisible(true); // scrolling up
       }
@@ -49,7 +67,25 @@ export function Navigation({ links }: NavigationProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  // Click outside to close language dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (desktopLangRef.current && !desktopLangRef.current.contains(event.target as Node)) {
+        setIsLangOpen(false);
+      }
+      if (mobileLangRef.current && !mobileLangRef.current.contains(event.target as Node)) {
+        setIsMobileLangOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    setIsMobileLangOpen(false);
+  };
 
   const handleLinkClick = (href: string) => {
     setIsOpen(false);
@@ -57,6 +93,12 @@ export function Navigation({ links }: NavigationProps) {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const selectLanguage = (code: Language) => {
+    setLanguage(code);
+    setIsLangOpen(false);
+    setIsMobileLangOpen(false);
   };
 
   return (
@@ -69,8 +111,8 @@ export function Navigation({ links }: NavigationProps) {
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           className={`w-full pointer-events-auto transition-all duration-300 rounded-2xl border ${
             isScrolled
-              ? 'py-3.5 bg-white/55 dark:bg-neutral-900/35 backdrop-blur-xl border-white/50 dark:border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.3)]'
-              : 'py-5 bg-white/20 dark:bg-neutral-900/15 backdrop-blur-md border-white/20 dark:border-white/5 shadow-sm'
+              ? 'py-3 bg-white/75 dark:bg-neutral-900/40 backdrop-blur-xl border-white/50 dark:border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.3)]'
+              : 'py-4.5 bg-white/20 dark:bg-neutral-900/15 backdrop-blur-md border-white/20 dark:border-white/5 shadow-sm'
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -112,18 +154,56 @@ export function Navigation({ links }: NavigationProps) {
 
             {/* Desktop Right CTA / Mode */}
             <div className="hidden md:flex items-center space-x-4" id="nav-desktop-cta">
-              {/* Language Selector Pill */}
-              <button
-                onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-white/45 dark:border-white/10 bg-white/25 dark:bg-white/5 backdrop-blur-md text-[10px] font-bold text-neutral-800 dark:text-neutral-100 hover:bg-white/35 dark:hover:bg-white/10 transition-all cursor-pointer relative overflow-hidden"
-                title="Switch Language"
-                id="language-toggle-pill"
-              >
-                <span className="absolute inset-0 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
-                <span className={language === 'en' ? 'text-magenta font-black' : 'opacity-60'}>EN</span>
-                <span className="opacity-30">|</span>
-                <span className={language === 'es' ? 'text-magenta font-black' : 'opacity-60'}>ES</span>
-              </button>
+              
+              {/* High Contrast Language Dropdown */}
+              <div className="relative" ref={desktopLangRef}>
+                <button
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-xs font-bold text-neutral-800 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all cursor-pointer shadow-sm"
+                  title="Switch Language"
+                  id="language-dropdown-toggle"
+                >
+                  <Globe className="h-3.5 w-3.5 text-magenta" />
+                  <span className="tracking-wide uppercase text-[11px] font-black">{currentLangObj.short}</span>
+                  <ChevronDown className={`h-3 w-3 text-neutral-400 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isLangOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: 'easeOut' }}
+                      className="absolute right-0 mt-2 w-44 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xl py-1.5 z-50 overflow-hidden"
+                      id="language-dropdown-menu"
+                    >
+                      <div className="px-3 py-1 text-[9px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest border-b border-neutral-100 dark:border-neutral-800 mb-1">
+                        Select Language
+                      </div>
+                      {LANGUAGES.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => selectLanguage(lang.code)}
+                          className={`w-full text-left px-3.5 py-2 text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                            language === lang.code
+                              ? 'bg-magenta/10 text-magenta dark:bg-magenta/20 dark:text-magenta-300'
+                              : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-magenta dark:hover:text-magenta'
+                          }`}
+                        >
+                          <span className="flex items-center space-x-2">
+                            <span className="text-[14px]">{lang.flag}</span>
+                            <span>{lang.name}</span>
+                          </span>
+                          {language === lang.code && (
+                            <span className="h-1.5 w-1.5 rounded-full bg-magenta" />
+                          )}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <ThemeToggle />
               <Button
@@ -132,30 +212,64 @@ export function Navigation({ links }: NavigationProps) {
                 onClick={() => handleLinkClick('#contact')}
                 id="get-started-cta"
               >
-                {language === 'es' ? 'Comenzar' : 'Get Started'}
+                {language === 'es' ? 'Comenzar' : 
+                 language === 'fr' ? 'Commencer' :
+                 language === 'de' ? 'Starten' :
+                 language === 'hi' ? 'शुरू करें' :
+                 language === 'zh' ? '立即开始' : 'Get Started'}
               </Button>
             </div>
 
             {/* Mobile Right Controls */}
-            <div className="flex md:hidden items-center space-x-3.5" id="nav-mobile-controls">
-              {/* Mobile Language Selector */}
-              <button
-                onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                className="flex items-center space-x-1 px-2.5 py-1 rounded-full border border-white/40 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-md text-[10px] font-bold text-neutral-800 dark:text-neutral-100 hover:bg-white/30 transition-all cursor-pointer relative"
-              >
-                <span className={language === 'en' ? 'text-magenta' : 'opacity-60'}>EN</span>
-                <span className="opacity-30">|</span>
-                <span className={language === 'es' ? 'text-magenta' : 'opacity-60'}>ES</span>
-              </button>
+            <div className="flex md:hidden items-center space-x-3" id="nav-mobile-controls">
+              
+              {/* Mobile Language Selector Dropdown */}
+              <div className="relative" ref={mobileLangRef}>
+                <button
+                  onClick={() => setIsMobileLangOpen(!isMobileLangOpen)}
+                  className="flex items-center space-x-1 px-2.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-[10px] font-bold text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 transition-all cursor-pointer shadow-sm"
+                >
+                  <Globe className="h-3 w-3 text-magenta" />
+                  <span className="tracking-wide uppercase font-black">{currentLangObj.short}</span>
+                  <ChevronDown className="h-2.5 w-2.5 text-neutral-400" />
+                </button>
+
+                <AnimatePresence>
+                  {isMobileLangOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 mt-1.5 w-36 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xl py-1 z-50 overflow-hidden"
+                    >
+                      {LANGUAGES.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => selectLanguage(lang.code)}
+                          className={`w-full text-left px-3 py-1.5 text-[11px] font-bold transition-colors flex items-center space-x-2 ${
+                            language === lang.code
+                              ? 'bg-magenta/10 text-magenta dark:bg-magenta/20'
+                              : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                          }`}
+                        >
+                          <span className="text-xs">{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <ThemeToggle />
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-full border border-neutral-200 bg-white/40 dark:border-neutral-800 dark:bg-neutral-900/40 text-neutral-600 dark:text-neutral-300 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                className="p-1.5 rounded-full border border-neutral-200 bg-white/40 dark:border-neutral-800 dark:bg-neutral-900/40 text-neutral-600 dark:text-neutral-300 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 aria-label="Toggle navigation menu"
                 id="nav-hamburger"
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
               </button>
             </div>
           </div>
@@ -206,7 +320,11 @@ export function Navigation({ links }: NavigationProps) {
                   onClick={() => handleLinkClick('#contact')}
                   id="mobile-get-started"
                 >
-                  {language === 'es' ? 'Comenzar Gratis' : 'Get Started Free'}
+                  {language === 'es' ? 'Comenzar Gratis' : 
+                   language === 'fr' ? 'Commencer Gratuitement' :
+                   language === 'de' ? 'Kostenlos Starten' :
+                   language === 'hi' ? 'मुफ़्त शुरू करें' :
+                   language === 'zh' ? '免费开始使用' : 'Get Started Free'}
                 </Button>
                 <div className="text-center text-xs text-neutral-500 dark:text-neutral-400">
                   © 2026 Verve AI Productivity

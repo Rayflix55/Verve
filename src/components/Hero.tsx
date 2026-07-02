@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Play, ChevronDown } from 'lucide-react';
+import { ArrowRight, Play, ChevronDown, Slack, Github, Figma, CreditCard, Video } from 'lucide-react';
 import { Button } from './UI/Button';
 import { InteractiveHeroBackground } from './InteractiveHeroBackground';
 
@@ -16,9 +16,16 @@ interface HeroProps {
   data: HeroData;
 }
 
-export function Hero({ data }: HeroProps) {
-  const logos = ['FACEBOOK', 'INSTAGRAM', 'TIKTOK', 'NEXUS', 'NETFLIX', 'FACEBOOK', 'INSTAGRAM', 'TIKTOK', 'NEXUS', 'NETFLIX'];
+const COMPANIES = [
+  { name: 'Slack', icon: <Slack className="h-4.5 w-4.5 text-[#4A154B] dark:text-[#36C5F0]" /> },
+  { name: 'GitHub', icon: <Github className="h-4.5 w-4.5 text-neutral-900 dark:text-neutral-100" /> },
+  { name: 'Figma', icon: <Figma className="h-4.5 w-4.5 text-[#F24E1E]" /> },
+  { name: 'Netflix', icon: <Play className="h-4 w-4 text-[#E50914] fill-current" /> },
+  { name: 'Stripe', icon: <CreditCard className="h-4.5 w-4.5 text-[#635BFF]" /> },
+  { name: 'Zoom', icon: <Video className="h-4.5 w-4.5 text-[#2D8CFF]" /> },
+];
 
+export function Hero({ data }: HeroProps) {
   const handleScrollToSection = (id: string) => {
     const target = document.querySelector(id);
     if (target) {
@@ -47,7 +54,7 @@ export function Hero({ data }: HeroProps) {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-magenta/25 bg-magenta/5 text-xs sm:text-sm font-semibold text-magenta mb-8 tracking-wide uppercase shadow-sm shadow-magenta/5"
+          className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-magenta/25 bg-magenta/5 text-xs sm:text-sm font-semibold text-magenta mb-6 md:mb-8 tracking-wide uppercase shadow-sm shadow-magenta/5 shadow-inner"
           id="hero-badge"
         >
           <span>{data.badge}</span>
@@ -58,7 +65,7 @@ export function Hero({ data }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.1] mb-6 max-w-4xl"
+          className="text-3xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.1] mb-4 md:mb-6 max-w-4xl"
           id="hero-headline"
         >
           Smarter by design.<br />
@@ -72,7 +79,7 @@ export function Hero({ data }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl leading-relaxed mb-10"
+          className="text-base sm:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl leading-relaxed mb-6 md:mb-10"
           id="hero-description"
         >
           {data.description}
@@ -83,7 +90,7 @@ export function Hero({ data }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-10 md:mb-16"
           id="hero-ctas"
         >
           <Button
@@ -115,23 +122,31 @@ export function Hero({ data }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full max-w-4xl mt-4"
+          className="w-full max-w-5xl mt-4"
           id="hero-trusted"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] text-neutral-400 dark:text-neutral-500 uppercase mb-6">
+          <p className="text-[10px] font-bold tracking-[0.25em] text-neutral-400 dark:text-neutral-500 uppercase mb-8">
             {data.trustedText}
           </p>
 
           {/* Scrolling Marquee Container */}
-          <div className="relative w-full overflow-hidden py-4 mask-image-marquee">
-            <div className="flex space-x-12 whitespace-nowrap animate-marquee">
-              {logos.map((logo, idx) => (
-                <span
-                  key={idx}
-                  className="inline-block text-sm sm:text-base font-black tracking-[0.3em] text-neutral-300 dark:text-neutral-800 hover:text-magenta transition-colors duration-300 px-4"
-                >
-                  {logo}
-                </span>
+          <div className="relative w-full overflow-hidden py-5 [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)] border-y border-neutral-100 dark:border-neutral-900/60 bg-neutral-50/10 dark:bg-neutral-950/10">
+            <div className="flex whitespace-nowrap animate-marquee">
+              {/* Duplicate structure to facilitate seamless continuous loop */}
+              {[1, 2, 3].map((setNum) => (
+                <div key={setNum} className="flex items-center space-x-14 shrink-0 pr-14">
+                  {COMPANIES.map((company, idx) => (
+                    <div
+                      key={`${setNum}-${idx}`}
+                      className="flex items-center space-x-3 text-sm sm:text-base font-black tracking-wide text-neutral-800 dark:text-neutral-200 hover:text-magenta transition-all duration-200 cursor-pointer"
+                    >
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200/50 dark:border-neutral-800/80 shadow-sm transition-transform duration-300 hover:scale-110">
+                        {company.icon}
+                      </div>
+                      <span className="font-sans tracking-tight">{company.name}</span>
+                    </div>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
@@ -142,7 +157,7 @@ export function Hero({ data }: HeroProps) {
           onClick={() => handleScrollToSection('#stats')}
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-          className="mt-16 text-neutral-400 hover:text-magenta transition-colors cursor-pointer"
+          className="mt-10 md:mt-16 text-neutral-400 hover:text-magenta transition-colors cursor-pointer"
           aria-label="Scroll down"
           id="hero-scroll-indicator"
         >
