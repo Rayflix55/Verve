@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { SectionHeaderReveal } from './UI/SectionHeaderReveal';
+import { StaggerContainer, StaggerItem } from './UI/StaggerReveal';
 
 interface BlogItem {
   category: string;
@@ -24,13 +25,9 @@ interface BlogProps {
 
 export function Blog({ data }: BlogProps) {
   return (
-    <motion.section
+    <section
       id="blog"
       className="py-24 relative overflow-hidden bg-neutral-50/50 dark:bg-neutral-950/40 border-y border-neutral-200/40 dark:border-neutral-900/40"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {/* Background decorations */}
       <div className="absolute top-1/4 left-1/4 -z-10 w-80 h-80 rounded-full bg-magenta/5 blur-[100px] pointer-events-none" />
@@ -46,18 +43,14 @@ export function Blog({ data }: BlogProps) {
           </p>
         </SectionHeaderReveal>
 
-        {/* Blog Cards Grid */}
-        <div
+        {/* Blog Cards Grid with Staggered Entrance */}
+        <StaggerContainer
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           id="blog-cards-grid"
         >
           {data.items.map((post, idx) => (
-            <motion.article
+            <StaggerItem
               key={post.title}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
               whileHover={{ y: -6 }}
               className="relative rounded-[28px] overflow-hidden flex flex-col justify-between group transition-all duration-300 premium-glow-card"
               id={`blog-card-${idx}`}
@@ -106,10 +99,10 @@ export function Blog({ data }: BlogProps) {
                   <ArrowUpRight className="h-4.5 w-4.5" />
                 </span>
               </div>
-            </motion.article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
-    </motion.section>
+    </section>
   );
 }
