@@ -128,7 +128,7 @@ export function Comparison({ data }: ComparisonProps) {
               {category.rows.map((row) => (
                 <div
                   key={row.feature}
-                  className="rounded-2xl border border-neutral-200 bg-white/80 dark:border-neutral-800 dark:bg-neutral-900/60 p-5 space-y-3 shadow-sm"
+                  className="rounded-[28px] p-5 space-y-3 shadow-sm premium-glow-card"
                 >
                   <p className="text-sm font-extrabold text-neutral-900 dark:text-white border-b border-neutral-100 dark:border-neutral-800/50 pb-2.5">
                     {row.feature}

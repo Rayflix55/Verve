@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import { Sparkles, Zap, Cpu } from 'lucide-react';
 import React, { ReactNode, useState, useEffect } from 'react';
 import { SectionHeaderReveal } from './UI/SectionHeaderReveal';
+import { PulseIconWrapper } from './UI/PulseIconWrapper';
+import { StaggerContainer, StaggerItem } from './UI/StaggerReveal';
 
 interface FeatureItem {
   id: string;
@@ -55,29 +57,25 @@ export function FeaturesOverview({ data }: FeaturesOverviewProps) {
   };
 
   return (
-    <motion.section
+    <section
       id="features"
-      className="py-24 relative max-w-7xl mx-auto px-6"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="py-16 sm:py-24 relative max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-10 left-1/3 -z-10 w-80 h-80 rounded-full bg-cyan/5 blur-[100px] pointer-events-none" />
 
       {/* Header */}
       <SectionHeaderReveal>
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5">
+        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5 text-center px-1">
           Building the future of work
         </h2>
-        <p className="text-lg text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto font-normal leading-relaxed">
+        <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-xl mx-auto font-normal leading-relaxed text-center px-2">
           Unleash maximum team coordination with next-gen automation features designed to streamline communication silos.
         </p>
       </SectionHeaderReveal>
 
-      {/* Cards Grid */}
-      <div
+      {/* Cards Grid with Staggered Entrance */}
+      <StaggerContainer
         className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
         id="features-overview-grid"
       >
@@ -89,14 +87,10 @@ export function FeaturesOverview({ data }: FeaturesOverviewProps) {
           </>
         ) : (
           data.map((feature, idx) => (
-            <motion.div
+            <StaggerItem
               key={feature.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: idx * 0.15, ease: 'easeOut' }}
               whileHover={{ y: -8 }}
-              className="relative group premium-glow-card p-8 flex flex-col"
+              className="relative group premium-glow-card p-6 sm:p-8 flex flex-col items-center sm:items-start text-center sm:text-left"
               id={`features-overview-card-${feature.id}`}
             >
               {/* Dynamic ambient color gradients */}
@@ -105,22 +99,25 @@ export function FeaturesOverview({ data }: FeaturesOverviewProps) {
               {/* Animated growing left border accent on hover */}
               <div className="absolute left-0 top-0 bottom-0 w-0 group-hover:w-1 bg-gradient-to-b from-magenta to-cyan transition-all duration-300 z-25" />
 
-              {/* Icon circle */}
-              <div className="relative z-10 flex items-center justify-center h-14 w-14 rounded-2xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/30 shadow-sm mb-6 group-hover:rotate-12 transition-transform duration-300">
+              {/* Pulse Icon Wrapper with animated shadow */}
+              <PulseIconWrapper
+                size="md"
+                className="group-hover:rotate-12 transition-transform duration-300 mb-6 mx-auto sm:mx-0"
+              >
                 {iconMap[feature.icon] || <Sparkles className="h-6 w-6" />}
-              </div>
+              </PulseIconWrapper>
 
               <h3 className="relative z-10 text-xl font-bold text-neutral-900 dark:text-white mb-3 tracking-tight group-hover:text-magenta transition-colors duration-200">
                 {feature.title}
               </h3>
 
-              <p className="relative z-10 text-neutral-500 dark:text-neutral-400 text-sm sm:text-base leading-relaxed font-normal flex-grow">
+              <p className="relative z-10 text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed font-normal flex-grow">
                 {feature.description}
               </p>
-            </motion.div>
+            </StaggerItem>
           ))
         )}
-      </div>
-    </motion.section>
+      </StaggerContainer>
+    </section>
   );
 }

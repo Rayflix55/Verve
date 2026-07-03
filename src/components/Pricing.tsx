@@ -3,6 +3,7 @@ import { motion, useInView, AnimatePresence } from 'motion/react';
 import { Check, Sparkles } from 'lucide-react';
 import { Button } from './UI/Button';
 import { SectionHeaderReveal } from './UI/SectionHeaderReveal';
+import { StaggerContainer, StaggerItem } from './UI/StaggerReveal';
 
 interface Plan {
   name: string;
@@ -37,13 +38,9 @@ export function Pricing({ data }: PricingProps) {
   };
 
   return (
-    <motion.section
+    <section
       id="pricing"
-      className="py-24 relative max-w-7xl mx-auto px-6"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="py-24 relative max-w-7xl mx-auto px-6 overflow-hidden"
     >
       {/* Decorative ambient background */}
       <div className="absolute top-1/4 -right-48 -z-10 w-96 h-96 rounded-full bg-magenta/10 blur-[130px] pointer-events-none" />
@@ -54,7 +51,7 @@ export function Pricing({ data }: PricingProps) {
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5">
           {data.title}
         </h2>
-        <p className="text-lg text-neutral-500 dark:text-neutral-400 font-normal leading-relaxed mb-8 max-w-2xl">
+        <p className="text-lg text-neutral-600 dark:text-neutral-300 font-normal leading-relaxed mb-8 max-w-2xl">
           {data.subtitle}
         </p>
 
@@ -86,9 +83,8 @@ export function Pricing({ data }: PricingProps) {
         </div>
       </SectionHeaderReveal>
 
-      {/* Cards Grid */}
-      <div
-        ref={containerRef}
+      {/* Cards Grid with Staggered Entrance */}
+      <StaggerContainer
         className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
         id="pricing-grid"
       >
@@ -97,16 +93,13 @@ export function Pricing({ data }: PricingProps) {
           const billingLabel = isYearly ? '/ user, billed annually' : plan.billing;
 
           return (
-            <motion.div
+            <StaggerItem
               key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
               whileHover={{ y: -4 }}
-              className={`relative rounded-3xl border flex flex-col justify-between overflow-hidden backdrop-blur-md p-8 sm:p-9 transition-all duration-300 ${
+              className={`relative rounded-[28px] flex flex-col justify-between overflow-hidden backdrop-blur-md p-8 sm:p-9 transition-all duration-300 premium-glow-card ${
                 plan.popular
-                  ? 'bg-white border-magenta dark:bg-neutral-900 shadow-xl shadow-magenta/5 scale-100 md:scale-[1.04] z-10'
-                  : 'bg-white/70 border-neutral-200 dark:bg-neutral-900/40 dark:border-neutral-800/80'
+                  ? 'border-magenta/70 shadow-xl shadow-magenta/10 scale-100 md:scale-[1.04] z-10'
+                  : ''
               }`}
               id={`pricing-card-${plan.name.toLowerCase()}`}
             >
@@ -123,7 +116,7 @@ export function Pricing({ data }: PricingProps) {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
                   {plan.name}
                 </h3>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-2 font-normal leading-relaxed min-h-[40px]">
+                <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-2 font-normal leading-relaxed min-h-[40px]">
                   {plan.description}
                 </p>
 
@@ -143,7 +136,7 @@ export function Pricing({ data }: PricingProps) {
                         {price}
                       </motion.span>
                     </AnimatePresence>
-                    <span className="text-xs sm:text-sm text-neutral-400 dark:text-neutral-500 ml-2 font-normal">
+                    <span className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 ml-2 font-normal">
                       {billingLabel}
                     </span>
                   </div>
@@ -181,10 +174,10 @@ export function Pricing({ data }: PricingProps) {
               {plan.popular && (
                 <div className="absolute -bottom-16 -right-16 -z-10 h-32 w-32 rounded-full bg-magenta/10 blur-2xl" />
               )}
-            </motion.div>
+            </StaggerItem>
           );
         })}
-      </div>
-    </motion.section>
+      </StaggerContainer>
+    </section>
   );
 }

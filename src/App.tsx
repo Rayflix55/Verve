@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { useCardAudio } from './hooks/useCardAudio';
 import { ScrollProgress } from './components/UI/ScrollProgress';
 import { BackToTop } from './components/UI/BackToTop';
 import { Navigation } from './components/Navigation';
@@ -19,10 +20,30 @@ import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { InteractiveAnimatedBackground } from './components/InteractiveAnimatedBackground';
+import { LightTrail } from './components/UI/LightTrail';
 import { SplashScreen } from './components/SplashScreen';
 
 function AppContent() {
   const { content, language } = useLanguage();
+  useCardAudio();
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const card = (e.target as HTMLElement).closest('.premium-glow-card') as HTMLElement;
+      if (card) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   const enrichedProductShowcase = {
     title: content.productShowcase.title,
@@ -61,6 +82,9 @@ function AppContent() {
     <div className="min-h-screen bg-white text-neutral-800 dark:bg-transparent dark:text-neutral-200 transition-colors duration-300 antialiased font-sans" id="app-root">
       {/* Futuristic Interactive Background */}
       <InteractiveAnimatedBackground />
+
+      {/* Global Interactive Mouse Light Trail */}
+      <LightTrail />
 
       {/* Scroll Progress Indicator */}
       <ScrollProgress />

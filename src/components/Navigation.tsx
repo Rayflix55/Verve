@@ -115,7 +115,7 @@ export function Navigation({ links }: NavigationProps) {
               : 'py-4.5 bg-white/20 dark:bg-neutral-900/15 backdrop-blur-md border-white/20 dark:border-white/5 shadow-sm'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between">
             {/* Logo */}
             <a
               href="#home"
@@ -123,11 +123,11 @@ export function Navigation({ links }: NavigationProps) {
                 e.preventDefault();
                 handleLinkClick('#home');
               }}
-              className="flex items-center space-x-2.5 font-bold text-xl sm:text-2xl text-neutral-900 dark:text-white hover:opacity-90"
+              className="flex items-center space-x-2 font-bold text-lg sm:text-2xl text-neutral-900 dark:text-white hover:opacity-90"
               id="nav-logo"
             >
-              <div className="h-10 w-10 flex items-center justify-center">
-                <Logo className="h-9 w-9" />
+              <div className="h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center">
+                <Logo className="h-7 w-7 sm:h-9 sm:w-9" />
               </div>
               <span className="tracking-tight text-neutral-900 dark:text-white font-extrabold">
                 Verve<span className="text-magenta font-black">.</span>
@@ -221,7 +221,7 @@ export function Navigation({ links }: NavigationProps) {
             </div>
 
             {/* Mobile Right Controls */}
-            <div className="flex md:hidden items-center space-x-3" id="nav-mobile-controls">
+            <div className="flex md:hidden items-center space-x-1.5 sm:space-x-3" id="nav-mobile-controls">
               
               {/* Mobile Language Selector Dropdown */}
               <div className="relative" ref={mobileLangRef}>

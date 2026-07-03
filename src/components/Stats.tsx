@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { DollarSign, Cpu, Users } from 'lucide-react';
 import React from 'react';
+import { StaggerContainer, StaggerItem } from './UI/StaggerReveal';
 
 interface StatItem {
   value: string;
@@ -71,12 +72,8 @@ function StatCounter({ value, label, sublabel, index }: StatCounterProps) {
   ];
 
   return (
-    <motion.div
+    <StaggerItem
       ref={elementRef}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
       className="relative group rounded-3xl border border-neutral-200/50 bg-white/60 dark:border-neutral-850 dark:bg-[#0c0c0c]/40 backdrop-blur-md p-7.5 transition-all duration-300"
       id={`stat-card-${index}`}
     >
@@ -107,23 +104,19 @@ function StatCounter({ value, label, sublabel, index }: StatCounterProps) {
 
       {/* Hover background pulse */}
       <div className="absolute -bottom-10 -right-10 -z-10 h-24 w-24 rounded-full bg-magenta/5 blur-xl group-hover:scale-150 transition-transform duration-500" />
-    </motion.div>
+    </StaggerItem>
   );
 }
 
 export function Stats({ data }: StatsProps) {
   return (
-    <motion.section
+    <section
       id="stats"
-      className="py-20 relative max-w-7xl mx-auto px-6"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="py-20 relative max-w-7xl mx-auto px-6 overflow-hidden"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[600px] h-48 rounded-full bg-magenta/5 blur-[100px] pointer-events-none" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {data.map((stat, idx) => (
           <StatCounter
             key={idx}
@@ -133,7 +126,7 @@ export function Stats({ data }: StatsProps) {
             sublabel={stat.sublabel}
           />
         ))}
-      </div>
-    </motion.section>
+      </StaggerContainer>
+    </section>
   );
 }

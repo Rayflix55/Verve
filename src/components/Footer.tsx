@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Send, Check } from "lucide-react";
+import { Send, Check, ArrowUp } from "lucide-react";
 import { motion } from "motion/react";
 import { Logo } from "./Logo";
 import { useLanguage } from "../context/LanguageContext";
@@ -151,6 +151,17 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
         {/* Bottom copyright segment */}
         <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-900/60 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
           <p>© {new Date().getFullYear()} Verve AI, Inc. {language === 'es' ? "Todos los derechos reservados." : "All rights reserved."}</p>
+          
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:text-[#E91E63] dark:hover:text-[#00BCD4] hover:border-[#E91E63] dark:hover:border-[#00BCD4] hover:scale-105 transition-all cursor-pointer text-gray-500 dark:text-gray-400 font-bold"
+            aria-label="Scroll to top"
+            id="footer-scroll-to-top"
+          >
+            <span>{language === 'es' ? "Volver arriba" : "Scroll to top"}</span>
+            <ArrowUp className="h-3.5 w-3.5 text-magenta" />
+          </button>
+
           <div className="flex gap-6">
             <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">{language === 'es' ? "Privacidad" : "Privacy"}</a>
             <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">{language === 'es' ? "Términos" : "Terms"}</a>

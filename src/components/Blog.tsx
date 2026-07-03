@@ -59,7 +59,7 @@ export function Blog({ data }: BlogProps) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               whileHover={{ y: -6 }}
-              className="relative rounded-2xl border border-neutral-200/60 bg-white dark:border-neutral-800/80 dark:bg-neutral-900 overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)]"
+              className="relative rounded-[28px] overflow-hidden flex flex-col justify-between group transition-all duration-300 premium-glow-card"
               id={`blog-card-${idx}`}
             >
               <div>

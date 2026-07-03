@@ -27,7 +27,7 @@ export function Card({
       {/* Dynamic ambient color gradients */}
       <div className="card-ambient-overlay" />
       {/* iOS Liquid Glass Top-Edge Highlight */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none rounded-[28px]" />
       {glow && (
         <div className="absolute -right-20 -top-20 -z-10 h-40 w-40 rounded-full bg-magenta/10 blur-3xl pointer-events-none" />
       )}

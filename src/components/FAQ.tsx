@@ -36,7 +36,7 @@ export function FAQ({ data }: FAQProps) {
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5">
           {data.title}
         </h2>
-        <p className="text-lg text-neutral-500 dark:text-neutral-400 font-normal leading-relaxed">
+        <p className="text-lg text-neutral-600 dark:text-neutral-300 font-normal leading-relaxed">
           {data.subtitle}
         </p>
       </SectionHeaderReveal>

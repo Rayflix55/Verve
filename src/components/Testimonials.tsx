@@ -103,7 +103,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
               >
                 {/* Individual Card */}
                 <div
-                  className={`relative flex flex-col justify-between h-[320px] p-8 rounded-[28px] bg-neutral-50/90 dark:bg-neutral-900/40 border border-neutral-200/60 dark:border-neutral-800/50 hover:bg-white dark:hover:bg-neutral-900/85 shadow-lg transition-all duration-300 ease-out backdrop-blur-md select-none transform cursor-pointer ${tiltClass} ${hoverTilts}`}
+                  className={`relative flex flex-col justify-between h-[320px] p-8 rounded-[28px] premium-glow-card shadow-lg transition-all duration-300 ease-out backdrop-blur-md select-none transform cursor-pointer ${tiltClass} ${hoverTilts}`}
                   id={`testimonial-card-${index}`}
                 >
                   {/* Card Content & Quotes */}

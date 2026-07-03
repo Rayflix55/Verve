@@ -195,7 +195,7 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5">
           {data.title}
         </h2>
-        <p className="text-lg text-neutral-500 dark:text-neutral-400 font-normal leading-relaxed">
+        <p className="text-lg text-neutral-600 dark:text-neutral-300 font-normal leading-relaxed">
           {data.description}
         </p>
       </SectionHeaderReveal>
@@ -255,7 +255,7 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
                         <h4 className="font-bold text-sm sm:text-base leading-tight mb-1">
                           {cap.title}
                         </h4>
-                        <p className={`text-xs font-normal leading-relaxed line-clamp-2 ${isActive ? 'text-neutral-300 dark:text-neutral-600' : 'text-neutral-400 dark:text-neutral-500'}`}>
+                        <p className={`text-xs font-normal leading-relaxed line-clamp-2 ${isActive ? 'text-neutral-300 dark:text-neutral-600' : 'text-neutral-600 dark:text-neutral-400'}`}>
                           {cap.description}
                         </p>
                       </div>
@@ -328,7 +328,7 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
                           <h5 className="font-bold text-sm sm:text-base text-neutral-800 dark:text-neutral-200">
                             {activeSubDetail.title}
                           </h5>
-                          <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 font-normal leading-relaxed mt-1">
+                          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-350 font-normal leading-relaxed mt-1">
                             {activeSubDetail.desc}
                           </p>
                         </div>

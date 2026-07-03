@@ -15,6 +15,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import React, { ReactNode } from 'react';
+import { PulseIconWrapper } from './UI/PulseIconWrapper';
 
 interface IntegrationItem {
   name: string;
@@ -38,16 +39,41 @@ export function Integrations({ data }: IntegrationsProps) {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const iconMap: Record<string, ReactNode> = {
-    Slack: <Slack className="h-6 w-6 text-[#4A154B]" />,
-    Github: <Github className="h-6 w-6 text-neutral-800 dark:text-neutral-200" />,
-    Figma: <Figma className="h-6 w-6 text-[#F24E1E]" />,
-    Mail: <Mail className="h-6 w-6 text-red-500" />,
-    HardDrive: <HardDrive className="h-6 w-6 text-blue-500" />,
-    Kanban: <Kanban className="h-6 w-6 text-[#0052CC]" />,
-    FileText: <FileText className="h-6 w-6 text-amber-500" />,
-    CheckSquare: <CheckSquare className="h-6 w-6 text-[#5E6AD2]" />,
+    Slack: <Slack className="h-6 w-6 text-[#4E154B] dark:text-[#36C5F0]" />,
+    slack: <Slack className="h-6 w-6 text-[#4E154B] dark:text-[#36C5F0]" />,
+    Github: <Github className="h-6 w-6 text-neutral-900 dark:text-neutral-100" />,
+    GitHub: <Github className="h-6 w-6 text-neutral-900 dark:text-neutral-100" />,
+    github: <Github className="h-6 w-6 text-neutral-900 dark:text-neutral-100" />,
+    Figma: <Figma className="h-6 w-6 text-[#F24E1E] dark:text-[#FF7262]" />,
+    figma: <Figma className="h-6 w-6 text-[#F24E1E] dark:text-[#FF7262]" />,
+    Mail: <Mail className="h-6 w-6 text-[#EA4335]" />,
+    Gmail: <Mail className="h-6 w-6 text-[#EA4335]" />,
+    mail: <Mail className="h-6 w-6 text-[#EA4335]" />,
+    gmail: <Mail className="h-6 w-6 text-[#EA4335]" />,
+    HardDrive: <HardDrive className="h-6 w-6 text-[#4285F4] dark:text-[#4285F4]" />,
+    GoogleDrive: <HardDrive className="h-6 w-6 text-[#4285F4] dark:text-[#4285F4]" />,
+    "Google Drive": <HardDrive className="h-6 w-6 text-[#4285F4] dark:text-[#4285F4]" />,
+    harddrive: <HardDrive className="h-6 w-6 text-[#4285F4] dark:text-[#4285F4]" />,
+    Kanban: <Kanban className="h-6 w-6 text-[#0052CC] dark:text-[#2684FF]" />,
+    Jira: <Kanban className="h-6 w-6 text-[#0052CC] dark:text-[#2684FF]" />,
+    kanban: <Kanban className="h-6 w-6 text-[#0052CC] dark:text-[#2684FF]" />,
+    jira: <Kanban className="h-6 w-6 text-[#0052CC] dark:text-[#2684FF]" />,
+    FileText: <FileText className="h-6 w-6 text-neutral-800 dark:text-neutral-100" />,
+    Notion: <FileText className="h-6 w-6 text-neutral-800 dark:text-neutral-100" />,
+    filetext: <FileText className="h-6 w-6 text-neutral-800 dark:text-neutral-100" />,
+    notion: <FileText className="h-6 w-6 text-neutral-800 dark:text-neutral-100" />,
+    CheckSquare: <CheckSquare className="h-6 w-6 text-[#5E6AD2] dark:text-[#7C8BFF]" />,
+    Linear: <CheckSquare className="h-6 w-6 text-[#5E6AD2] dark:text-[#7C8BFF]" />,
+    checksquare: <CheckSquare className="h-6 w-6 text-[#5E6AD2] dark:text-[#7C8BFF]" />,
+    linear: <CheckSquare className="h-6 w-6 text-[#5E6AD2] dark:text-[#7C8BFF]" />,
     Video: <Video className="h-6 w-6 text-[#2D8CFF]" />,
-    CreditCard: <CreditCard className="h-6 w-6 text-emerald-500" />,
+    Zoom: <Video className="h-6 w-6 text-[#2D8CFF]" />,
+    video: <Video className="h-6 w-6 text-[#2D8CFF]" />,
+    zoom: <Video className="h-6 w-6 text-[#2D8CFF]" />,
+    CreditCard: <CreditCard className="h-6 w-6 text-[#635BFF] dark:text-[#8079FF]" />,
+    Stripe: <CreditCard className="h-6 w-6 text-[#635BFF] dark:text-[#8079FF]" />,
+    creditcard: <CreditCard className="h-6 w-6 text-[#635BFF] dark:text-[#8079FF]" />,
+    stripe: <CreditCard className="h-6 w-6 text-[#635BFF] dark:text-[#8079FF]" />,
   };
 
   const filteredItems =
@@ -73,7 +99,7 @@ export function Integrations({ data }: IntegrationsProps) {
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-5">
             {data.title}
           </h2>
-          <p className="text-lg text-neutral-500 dark:text-neutral-400 font-normal leading-relaxed">
+          <p className="text-lg text-neutral-600 dark:text-neutral-300 font-normal leading-relaxed">
             {data.subtitle}
           </p>
         </SectionHeaderReveal>
@@ -117,16 +143,19 @@ export function Integrations({ data }: IntegrationsProps) {
                 className="relative rounded-2xl border border-neutral-200/50 bg-white/60 dark:border-neutral-800/50 dark:bg-neutral-900/40 backdrop-blur-md p-6 flex flex-col items-center text-center group cursor-pointer hover:shadow-[0_10px_25px_-5px_rgba(0,188,212,0.15)]"
                 id={`integration-card-${item.name}`}
               >
-                {/* Integration Icon */}
-                <div className="h-14 w-14 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-150 dark:border-neutral-700/40 flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                  {iconMap[item.name] || <Slack className="h-6 w-6" />}
-                </div>
+                {/* Integration Icon with animated pulse shadow */}
+                <PulseIconWrapper
+                  size="md"
+                  className="mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 border-neutral-150 dark:border-neutral-700/40"
+                >
+                  {iconMap[item.icon] || iconMap[item.name] || <Slack className="h-6 w-6" />}
+                </PulseIconWrapper>
 
                 <h3 className="text-sm sm:text-base font-bold text-neutral-800 dark:text-neutral-100 mb-1.5">
                   {item.name}
                 </h3>
 
-                <p className="text-[11px] sm:text-xs text-neutral-400 dark:text-neutral-500 font-normal line-clamp-2 leading-relaxed">
+                <p className="text-xs text-neutral-600 dark:text-neutral-350 font-normal line-clamp-2 leading-relaxed">
                   {item.desc}
                 </p>
 

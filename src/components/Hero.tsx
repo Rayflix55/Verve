@@ -36,7 +36,7 @@ export function Hero({ data }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-28 pb-16 flex flex-col justify-center items-center overflow-hidden"
+      className="relative min-h-screen pt-20 pb-10 sm:pt-28 sm:pb-16 flex flex-col justify-center items-center overflow-hidden"
     >
       {/* Interactive Mouse-Following Particle System */}
       <InteractiveHeroBackground />
@@ -48,7 +48,7 @@ export function Hero({ data }: HeroProps) {
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+      <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
@@ -90,14 +90,13 @@ export function Hero({ data }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-10 md:mb-16"
+          className="flex flex-row items-center justify-center gap-3 w-full sm:w-auto mb-10 md:mb-16 px-2"
           id="hero-ctas"
         >
           <Button
             variant="primary"
-            size="lg"
-            className="w-full sm:w-auto"
-            icon={<ArrowRight className="h-4.5 w-4.5 group-hover:translate-x-1 transition-transform" />}
+            className="w-auto flex-1 sm:flex-none text-xs sm:text-sm md:text-base px-4 py-2.5 sm:px-8 sm:py-3.5"
+            icon={<ArrowRight className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5 group-hover:translate-x-1 transition-transform" />}
             onClick={() => handleScrollToSection('#contact')}
             id="hero-primary-cta"
           >
@@ -106,9 +105,8 @@ export function Hero({ data }: HeroProps) {
 
           <Button
             variant="secondary"
-            size="lg"
-            className="w-full sm:w-auto"
-            icon={<Play className="h-4 w-4 fill-current" />}
+            className="w-auto flex-1 sm:flex-none text-xs sm:text-sm md:text-base px-4 py-2.5 sm:px-8 sm:py-3.5"
+            icon={<Play className="h-3 sm:h-4 w-3 sm:w-4 fill-current" />}
             iconPosition="left"
             onClick={() => handleScrollToSection('#features')}
             id="hero-secondary-cta"

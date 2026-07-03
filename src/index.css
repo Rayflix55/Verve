@@ -18,28 +18,37 @@
 
 /* Ensure premium readability and contrast of writeups, descriptions, and paragraphs across all modes */
 p, .writeup, .text-readable {
-  color: #2d3748 !important; /* Warm deep slate gray for supreme readability in light mode */
+  color: #1e293b !important; /* Deep warm slate for supreme readability in light mode */
+  line-height: 1.8 !important; /* Spacious, comfortable, premium line-height */
+  letter-spacing: 0.01em !important; /* Slightly open character spacing for superb legibility */
 }
 
 .dark p, .dark .writeup, .dark .text-readable {
-  color: #f1f5f9 !important; /* Crisp clear slate white for premium contrast in dark mode */
+  color: #f8fafc !important; /* Crisp clear bright slate for premium contrast in dark mode */
+  line-height: 1.8 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Ensure secondary details have spacious line heights as well */
+.text-xs, .text-sm, .text-base, .text-lg {
+  line-height: 1.75 !important;
 }
 
 /* Override Tailwind low-contrast utility colors for maximum human legibility */
 .text-neutral-500, .text-gray-500, .text-neutral-400, .text-gray-400 {
-  color: #374151 !important; /* Deep neutral for high-contrast reading in light mode */
+  color: #334155 !important; /* High contrast dark slate for light mode */
 }
 
 .dark .text-neutral-400, .dark .text-gray-400, .dark .text-neutral-500, .dark .text-gray-500 {
-  color: #cbd5e1 !important; /* Bright crisp slate-300 for dark mode */
+  color: #e2e8f0 !important; /* Bright crisp slate for dark mode */
 }
 
 .text-neutral-600, .text-gray-600 {
-  color: #1f2937 !important; /* Rich deep neutral for main copies in light mode */
+  color: #0f172a !important; /* Rich deep slate for main copies in light mode */
 }
 
 .dark .text-neutral-300, .dark .text-gray-300 {
-  color: #f8fafc !important; /* Absolute bright slate-50 for dark mode descriptions */
+  color: #f1f5f9 !important; /* Brightest slate for dark mode descriptions */
 }
 
 /* Clean heading aesthetics for Merside serif display */
@@ -114,34 +123,35 @@ body {
 .premium-glow-card {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
-  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(248, 250, 252, 0.5) 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.03);
+  backdrop-filter: blur(20px);
 }
 
 .dark .premium-glow-card {
-  background: rgba(15, 12, 22, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(20, 18, 30, 0.8) 0%, rgba(28, 25, 43, 0.7) 50%, rgba(15, 13, 24, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
 }
 
 /* Fluid multi-color backdrops inside cards */
 .card-ambient-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 0% 0%, rgba(233, 30, 99, 0.04) 0%, transparent 50%),
-              radial-gradient(circle at 100% 100%, rgba(0, 188, 212, 0.04) 0%, transparent 50%);
-  opacity: 0.7;
+  background: radial-gradient(circle at 10% 10%, rgba(233, 30, 99, 0.06) 0%, transparent 60%),
+              radial-gradient(circle at 90% 90%, rgba(0, 188, 212, 0.06) 0%, transparent 60%);
+  opacity: 0.8;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
 }
 
 .dark .card-ambient-overlay {
-  background: radial-gradient(circle at 0% 0%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 100% 100%, rgba(0, 188, 212, 0.08) 0%, transparent 50%);
+  background: radial-gradient(circle at 15% 15%, rgba(233, 30, 99, 0.12) 0%, transparent 65%),
+              radial-gradient(circle at 85% 85%, rgba(0, 188, 212, 0.1) 0%, transparent 65%),
+              radial-gradient(circle at 50% 50%, rgba(156, 39, 176, 0.04) 0%, transparent 70%);
 }
 
 .premium-glow-card:hover .card-ambient-overlay {
@@ -155,6 +165,41 @@ body {
 }
 
 .dark .premium-glow-card:hover {
-  border-color: rgba(233, 30, 99, 0.4);
-  box-shadow: 0 20px 45px -15px rgba(233, 30, 99, 0.25);
+  border-color: rgba(0, 188, 212, 0.4);
+  box-shadow: 0 20px 45px -15px rgba(0, 188, 212, 0.25);
+}
+
+/* Mouse-tracking gradient border effect using high-performance mask composition */
+.premium-glow-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px; /* Exact border width */
+  background: radial-gradient(
+    280px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(233, 30, 99, 0.6) 0%,   /* Vibrant magenta */
+    rgba(0, 188, 212, 0.45) 50%, /* Vibrant cyan */
+    transparent 85%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
+}
+
+.dark .premium-glow-card::after {
+  background: radial-gradient(
+    320px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(233, 30, 99, 0.75) 0%,   /* Vivid magenta in dark mode */
+    rgba(0, 188, 212, 0.55) 45%,  /* Vivid cyan in dark mode */
+    transparent 85%
+  );
+}
+
+.premium-glow-card:hover::after {
+  opacity: 1;
 }

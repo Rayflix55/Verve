@@ -72,7 +72,13 @@ export function InteractiveAnimatedBackground() {
   const [qualityScale, setQualityScale] = useState<number>(0.75); // downscale for performance
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [autopilot, setAutopilot] = useState<boolean>(true);
-  const [renderEngine, setRenderEngine] = useState<'webgl' | 'canvas2d'>('webgl');
+  const [renderEngine, setRenderEngine] = useState<'webgl' | 'canvas2d'>(() => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 640 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      return isMobile ? 'canvas2d' : 'webgl';
+    }
+    return 'webgl';
+  });
 
   // Interactive Panel States
   const [isPanelOpen, setIsPanelOpen] = useState<boolean>(false);
