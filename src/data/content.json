@@ -12,7 +12,6 @@
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "badge": "✨ AI-Powered Team Management",
     "headline": "Smarter by design. Simplified by AI.",
     "description": "Automate your workflows, prioritize what matters, and scale your team's velocity with context-aware AI assistants that integrate directly with your daily tool stack.",
     "primaryCta": "Get Started Free",

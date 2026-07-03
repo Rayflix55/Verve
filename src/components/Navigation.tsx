@@ -262,10 +262,10 @@ export function Navigation({ links }: NavigationProps) {
                 </AnimatePresence>
               </div>
 
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               <button
                 onClick={toggleMenu}
-                className="p-1.5 rounded-full border border-neutral-200 bg-white/40 dark:border-neutral-800 dark:bg-neutral-900/40 text-neutral-600 dark:text-neutral-300 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                className="p-1.5 rounded-full border border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-950 text-neutral-700 dark:text-neutral-100 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 aria-label="Toggle navigation menu"
                 id="nav-hamburger"
               >

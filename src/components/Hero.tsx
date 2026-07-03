@@ -49,16 +49,7 @@ export function Hero({ data }: HeroProps) {
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-magenta/25 bg-magenta/5 text-xs sm:text-sm font-semibold text-magenta mb-6 md:mb-8 tracking-wide uppercase shadow-sm shadow-magenta/5 shadow-inner"
-          id="hero-badge"
-        >
-          <span>{data.badge}</span>
-        </motion.div>
+     
 
         {/* Headline */}
         <motion.h1

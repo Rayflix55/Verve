@@ -110,10 +110,10 @@ export function Integrations({ data }: IntegrationsProps) {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wide uppercase border transition-all cursor-pointer ${
+              className={`px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide uppercase border transition-all cursor-pointer ${
                 activeCategory === category
-                  ? 'bg-neutral-900 border-neutral-900 text-white dark:bg-white dark:border-white dark:text-neutral-950 shadow-md'
-                  : 'bg-white border-neutral-200 text-neutral-600 hover:bg-neutral-50 dark:bg-neutral-900 dark:border-neutral-850 dark:text-neutral-400 dark:hover:bg-neutral-800'
+                  ? 'bg-neutral-900 border-neutral-900 text-white shadow-lg'
+                  : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-100 hover:border-neutral-400'
               }`}
             >
               {category}

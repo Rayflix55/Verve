@@ -236,17 +236,17 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
                     <button
                       key={cap.title}
                       onClick={() => handleCapabilityChange(idx)}
-                      className={`w-full text-left p-5 rounded-2xl border transition-all flex items-start space-x-4 cursor-pointer ${
+                      className={`w-full text-left p-5 rounded-2xl border transition-all flex items-start space-x-4 cursor-pointer backdrop-blur-md ${
                         isActive
-                          ? 'bg-neutral-900 border-neutral-900 text-white dark:bg-white dark:border-white dark:text-neutral-950 shadow-lg shadow-neutral-900/5 dark:shadow-white/5'
-                          : 'bg-white border-neutral-200 text-neutral-600 hover:bg-neutral-50 dark:bg-neutral-900/40 dark:border-neutral-850 dark:text-neutral-400 dark:hover:bg-neutral-900/80'
+                          ? 'bg-white/20 border-white/40 text-white dark:bg-white/15 dark:border-white/30 dark:text-white shadow-lg shadow-blue-500/10 dark:shadow-blue-400/5'
+                          : 'bg-white/10 border-white/20 text-neutral-700 hover:bg-white/15 dark:bg-white/8 dark:border-white/15 dark:text-neutral-200 dark:hover:bg-white/12'
                       }`}
                       aria-label={`Select capability ${cap.title}`}
                     >
-                      <div className={`flex-shrink-0 h-10 w-10 rounded-xl flex items-center justify-center ${
+                      <div className={`flex-shrink-0 h-10 w-10 rounded-xl flex items-center justify-center backdrop-blur-sm ${
                         isActive
-                          ? 'bg-white/10 dark:bg-neutral-950/10 text-current border border-white/20 dark:border-neutral-950/25'
-                          : 'bg-neutral-50 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300'
+                          ? 'bg-white/20 dark:bg-white/15 text-current border border-white/30 dark:border-white/25'
+                          : 'bg-white/10 dark:bg-white/8 text-neutral-700 dark:text-neutral-300 border border-white/10'
                       }`}>
                         {iconMap[cap.icon] || <Sparkles className="h-5 w-5" />}
                       </div>
@@ -255,7 +255,7 @@ export function ProductShowcase({ data }: ProductShowcaseProps) {
                         <h4 className="font-bold text-sm sm:text-base leading-tight mb-1">
                           {cap.title}
                         </h4>
-                        <p className={`text-xs font-normal leading-relaxed line-clamp-2 ${isActive ? 'text-neutral-300 dark:text-neutral-600' : 'text-neutral-600 dark:text-neutral-400'}`}>
+                        <p className={`text-xs font-normal leading-relaxed line-clamp-2 ${isActive ? 'text-neutral-100 dark:text-neutral-100' : 'text-neutral-600 dark:text-neutral-300'}`}>
                           {cap.description}
                         </p>
                       </div>

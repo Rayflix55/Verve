@@ -1,5 +1,5 @@
 # 🌟 Verve SaaS Landing Page
-
+![alt text](<Macbook-Air-localhost (1).png>)
 An ultra-premium, high-performance, and fully responsive production-ready landing page for **Verve** — an AI-powered SaaS productivity platform. Designed with a custom-engineered **Bioluminescent Neo-Slate** aesthetic, this experience delivers lightning-fast responsive performance, modern scroll-driven animations, stateful multi-language translation, and unique physical micro-interaction haptics.
 
 Built using the cutting-edge React ecosystem with **Vite**, **Tailwind CSS**, and **Framer Motion**.

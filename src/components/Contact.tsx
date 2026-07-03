@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, type SVGProps } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { motion } from 'motion/react';
 import { SectionHeaderReveal } from './UI/SectionHeaderReveal';
-import { MapPin, Mail, Phone, Clock, Twitter, Github, Linkedin, Instagram, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, Send, CheckCircle2 } from 'lucide-react';
 import { Button } from './UI/Button';
 
 interface IFormInput {
@@ -37,6 +37,40 @@ interface ContactData {
 interface ContactProps {
   data: ContactData;
 }
+
+const XBrandIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M5 5l14 14M19 5L5 19" />
+  </svg>
+);
+
+const GithubBrandIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.258.82-.577 0-.286-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.335-1.757-1.335-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.235 1.84 1.235 1.07 1.835 2.807 1.305 3.492.997.108-.775.42-1.305.763-1.605-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.526.117-3.176 0 0 1.008-.323 3.3 1.23a11.48 11.48 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.553 3.297-1.23 3.297-1.23.655 1.65.244 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.815 1.102.815 2.222 0 1.606-.015 2.903-.015 3.296 0 .32.216.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z" />
+  </svg>
+);
+
+const LinkedinBrandIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.36h.1c.67-1.25 2.3-2.56 4.74-2.56 5.07 0 6 3.34 6 7.67V24h-5V15.5c0-2.03-.04-4.65-2.83-4.65-2.83 0-3.27 2.22-3.27 4.5V24h-5V8z" />
+  </svg>
+);
+
+const InstagramBrandIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <defs>
+      <linearGradient id="insta-gradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#feda75" />
+        <stop offset="35%" stopColor="#d62976" />
+        <stop offset="100%" stopColor="#962fbf" />
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#insta-gradient)" />
+    <circle cx="12" cy="12" r="4.8" fill="white" opacity="0.95" />
+    <circle cx="12" cy="12" r="3.4" fill="#292929" />
+    <circle cx="17.5" cy="6.5" r="1.4" fill="white" />
+  </svg>
+);
 
 export function Contact({ data }: ContactProps) {
   const [isSubmittingForm, setIsSubmittingForm] = useState(false);
@@ -316,28 +350,28 @@ export function Contact({ data }: ContactProps) {
                 href={data.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-magenta dark:hover:text-magenta transition-colors hover:scale-105"
-                aria-label="Twitter connection"
+                className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-[#1DA1F2] dark:text-[#1DA1F2] hover:text-[#0d8be6] transition-colors hover:scale-105"
+                aria-label="X (Twitter) connection"
               >
-                <Twitter className="h-5 w-5 fill-current text-current" />
+                <XBrandIcon className="h-5 w-5 text-current" />
               </a>
               <a
                 href={data.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-magenta dark:hover:text-magenta transition-colors hover:scale-105"
+                className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-[#181717] dark:text-white hover:opacity-90 transition-colors hover:scale-105"
                 aria-label="GitHub connection"
               >
-                <Github className="h-5 w-5 fill-current text-current" />
+                <GithubBrandIcon className="h-5 w-5 text-current" />
               </a>
               <a
                 href={data.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-magenta dark:hover:text-magenta transition-colors hover:scale-105"
+                className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-[#0077B5] dark:text-[#0077B5] hover:opacity-90 transition-colors hover:scale-105"
                 aria-label="LinkedIn connection"
               >
-                <Linkedin className="h-5 w-5 fill-current text-current" />
+                <LinkedinBrandIcon className="h-5 w-5 text-current" />
               </a>
               <a
                 href={data.socials.instagram}
@@ -346,7 +380,7 @@ export function Contact({ data }: ContactProps) {
                 className="h-11 w-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/20 dark:border-neutral-700/50 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-magenta dark:hover:text-magenta transition-colors hover:scale-105"
                 aria-label="Instagram connection"
               >
-                <Instagram className="h-5 w-5" />
+                <InstagramBrandIcon className="h-5 w-5" />
               </a>
             </div>
           </div>

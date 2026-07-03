@@ -148,11 +148,11 @@ export function Pricing({ data }: PricingProps) {
                 {/* Feature List */}
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feat) => (
-                    <li key={feat} className="flex items-start text-sm">
+                    <li key={feat} className="flex items-start text-sm transition-colors duration-200 hover:text-magenta">
                       <div className="flex-shrink-0 h-5 w-5 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700/50 flex items-center justify-center mr-3 mt-0.5">
-                        <Check className="h-3.5 w-3.5 text-magenta" strokeWidth={2.5} />
+                        <Check className="h-3.5 w-3.5 text-green-500" strokeWidth={2.5} />
                       </div>
-                      <span className="text-neutral-600 dark:text-neutral-300 font-normal leading-normal">
+                      <span className="text-white font-normal leading-normal">
                         {feat}
                       </span>
                     </li>
