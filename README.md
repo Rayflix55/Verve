@@ -118,6 +118,17 @@ A high-contrast quote layout containing real-world customer reviews.
 - **DOM & Garbage Collection**: Canvas-based animations safely clear high-frequency intervals, animation frames, and coordinate listeners on component unmount, preventing memory leaks.
 - **Pure Effect Control**: No state updates occur during initial renders. Dependency arrays in `useEffect` rely strictly on primitives, guaranteeing no infinite loop cascades or double-render cycles.
 
+### 📱 Mobile Animation Trade-offs & Optimizations
+
+To keep the experience smooth on phones and lower-powered devices, the site now makes a few intentional trade-offs:
+
+- **Background effects are reduced on mobile**: The heavy fluid canvas background is disabled on small screens and for users who prefer reduced motion, preserving a simpler visual fallback instead of running a costly animation loop.
+- **Custom light trails are skipped on mobile**: The global cursor trail is turned off on touch/mobile contexts to avoid frame drops and unnecessary pointer-driven rendering.
+- **Marquee motion is replaced with a static layout on mobile**: The testimonial carousel stops autoplaying and switches to a more compact stacked presentation so it remains readable and performant.
+- **Reduced-motion support is respected**: Motion-sensitive users see a calmer version of the experience without losing clarity or readability.
+
+These choices prioritize smooth scrolling, lower CPU usage, and better battery efficiency while retaining the premium visual language of the landing page on desktop.
+
 ---
 
 ## 💻 Script Commands

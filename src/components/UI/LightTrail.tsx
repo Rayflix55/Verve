@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useIsMobile, useReducedMotion } from '../../hooks/useMobileOptimizedMotion';
 
 interface TrailNode {
   x: number;
@@ -9,6 +10,9 @@ interface TrailNode {
 }
 
 export function LightTrail() {
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+  const shouldReduceMotion = isMobile || prefersReducedMotion;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouseRef = useRef<{ x: number; y: number }>({ x: -1000, y: -1000 });
   const targetMouseRef = useRef<{ x: number; y: number }>({ x: -1000, y: -1000 });
@@ -18,6 +22,10 @@ export function LightTrail() {
   const hoverIntensityRef = useRef<number>(0); // Lerps between 0 and 1
 
   useEffect(() => {
+    if (shouldReduceMotion) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -256,7 +264,7 @@ export function LightTrail() {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
     <canvas

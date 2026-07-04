@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sliders, Sparkles, RefreshCw, Zap, Monitor, Activity, Check, CirclePlay, CirclePause, ChevronRight, Info } from 'lucide-react';
+import { useIsMobile, useReducedMotion } from '../hooks/useMobileOptimizedMotion';
 
 // Interfaces for our configuration
 interface ColorPreset {
@@ -61,6 +62,10 @@ interface TrailPoint {
 }
 
 export function InteractiveAnimatedBackground() {
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+  const shouldReduceMotion = isMobile || prefersReducedMotion;
+
   // Config States
   const [speed, setSpeed] = useState<number>(0.8);
   const [warpStrength, setWarpStrength] = useState<number>(1.2);
@@ -69,12 +74,18 @@ export function InteractiveAnimatedBackground() {
   const [blobCount, setBlobCount] = useState<number>(4);
   const [viscosity, setViscosity] = useState<number>(0.92); // Trail fade inertia
   const [activePreset, setActivePreset] = useState<string>('cyberpunk');
-  const [qualityScale, setQualityScale] = useState<number>(0.75); // downscale for performance
+  const [qualityScale, setQualityScale] = useState<number>(() => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      return isMobile ? 0.45 : 0.75;
+    }
+    return 0.75;
+  }); // downscale for performance
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [autopilot, setAutopilot] = useState<boolean>(true);
   const [renderEngine, setRenderEngine] = useState<'webgl' | 'canvas2d'>(() => {
     if (typeof window !== 'undefined') {
-      const isMobile = window.innerWidth < 640 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       return isMobile ? 'canvas2d' : 'webgl';
     }
     return 'webgl';
@@ -170,6 +181,10 @@ export function InteractiveAnimatedBackground() {
 
   // Main Loop / Renderer
   useEffect(() => {
+    if (shouldReduceMotion) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -549,8 +564,9 @@ export function InteractiveAnimatedBackground() {
           ctx2d!.fill();
         });
 
-        // Add standard film grain
-        if (noiseIntensity > 0) {
+        // Add standard film grain - Bypassed on mobile to prevent massive CPU and frame rate lag
+        const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+        if (noiseIntensity > 0 && !isMobileDevice) {
           const imgData = ctx2d.getImageData(0, 0, canvas.width, canvas.height);
           const data = imgData.data;
           const noise = noiseIntensity * 255;
@@ -579,7 +595,7 @@ export function InteractiveAnimatedBackground() {
         if (program) gl.deleteProgram(program);
       }
     };
-  }, [renderEngine, activePreset, qualityScale, isPaused, autopilot]);
+  }, [renderEngine, activePreset, qualityScale, isPaused, autopilot, shouldReduceMotion]);
 
   return (
     <>
@@ -589,18 +605,28 @@ export function InteractiveAnimatedBackground() {
         style={{ zIndex: -20 }}
         id="interactive-bg-wrapper"
       >
-        <canvas
-          ref={canvasRef}
-          className="block w-full h-full"
-          style={{ 
+        <div
+          className="absolute inset-0"
+          style={{
+            background: shouldReduceMotion ? 'radial-gradient(circle at top, rgba(233,30,99,0.16), transparent 60%)' : undefined,
             backgroundColor: '#000000',
-            filter: 'contrast(1.05) saturate(1.1)' 
           }}
-          id="fluid-background-canvas"
         />
+        {!shouldReduceMotion && (
+          <canvas
+            ref={canvasRef}
+            className="block w-full h-full"
+            style={{
+              backgroundColor: 'transparent',
+              filter: 'contrast(1.05) saturate(1.1)'
+            }}
+            id="fluid-background-canvas"
+          />
+        )}
       </div>
 
       {/* Futuristic Floating Interactive Control Panel */}
+      {!shouldReduceMotion && (
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 font-sans" id="bg-control-container">
         {/* Toggle Widget Button */}
         <button
@@ -879,6 +905,7 @@ export function InteractiveAnimatedBackground() {
           )}
         </AnimatePresence>
       </div>
+      )}
     </>
   );
 }

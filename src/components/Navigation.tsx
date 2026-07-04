@@ -205,7 +205,6 @@ export function Navigation({ links }: NavigationProps) {
                 </AnimatePresence>
               </div>
 
-              <ThemeToggle />
               <Button
                 variant="primary"
                 size="sm"

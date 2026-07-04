@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion } from "motion/react";
+import { useIsMobile, useReducedMotion } from "../hooks/useMobileOptimizedMotion";
 
 interface TestimonialItem {
   quote: string;
@@ -20,6 +21,9 @@ interface TestimonialsProps {
 
 export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+  const shouldReduceMotion = isMobile || prefersReducedMotion;
 
   // Define static tilts for cards based on their index to create the scattered physical layout
   const tilts = ["-rotate-[2.5deg]", "rotate-[1.5deg]", "-rotate-[1deg]", "rotate-[2deg]"];
@@ -50,6 +54,12 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
         }
         .animate-marquee-left {
           animation: marquee-left 32s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce), (max-width: 767px) {
+          .animate-marquee-left {
+            animation: none;
+            transform: none;
+          }
         }
       `}</style>
 
@@ -91,7 +101,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white dark:from-[#000000] to-transparent z-20 pointer-events-none" />
 
         {/* Scrolling Strip Container */}
-        <div className="flex w-[300%] md:w-[250%] lg:w-[200%] items-center animate-marquee-left" id="testimonials-marquee-track">
+        <div className={`flex ${shouldReduceMotion ? 'w-full flex-wrap justify-center gap-4' : 'w-[300%] md:w-[250%] lg:w-[200%]'} items-center ${shouldReduceMotion ? '' : 'animate-marquee-left'}`} id="testimonials-marquee-track">
           {firstRowItems.map((item, index) => {
             const tiltClass = tilts[index % tilts.length];
             return (
