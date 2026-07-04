@@ -15,7 +15,7 @@ export function InteractiveHeroBackground() {
     let width = canvas.width = canvas.offsetWidth;
     let height = canvas.height = canvas.offsetHeight;
 
-    // Smooth cursor coordinate tracking
+    // Smooth cursor coordinate tracker
     const mouse = {
       x: width / 2,
       y: height / 2,
