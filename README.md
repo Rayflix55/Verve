@@ -1,8 +1,55 @@
 # 🌟 Verve SaaS Landing Page
-![alt text](<Macbook-Air-localhost (1).png>)
+![alt text](image.png)
 An ultra-premium, high-performance, and fully responsive production-ready landing page for **Verve** — an AI-powered SaaS productivity platform. Designed with a custom-engineered **Bioluminescent Neo-Slate** aesthetic, this experience delivers lightning-fast responsive performance, modern scroll-driven animations, stateful multi-language translation, and unique physical micro-interaction haptics.
 
-Built using the cutting-edge React ecosystem with **Vite**, **Tailwind CSS**, and **Framer Motion**.
+---
+
+## 🧰 Tech Stack
+
+This project is built with a modern frontend stack focused on speed, polish, and developer experience:
+
+- **React 19** with **TypeScript** for component-driven UI development
+- **Vite 6** for fast local development and optimized production builds
+- **Tailwind CSS 4** for utility-first styling and responsive layout control
+- **Motion** (the Framer Motion-compatible animation library) for scroll reveals and motion effects
+- **Lucide React** for lightweight iconography
+- **React Hook Form** for form state management
+- **Express** and **dotenv** for optional server-side utilities and environment handling
+
+---
+
+## ▶️ Getting Started
+
+### Prerequisites
+
+- **Node.js 18+**
+- **npm 9+**
+
+### Installation
+
+```bash
+npm install
+```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+The app will be available at **http://localhost:3000**.
+
+### Production build
+
+```bash
+npm run build
+```
+
+### Type checking
+
+```bash
+npm run lint
+```
 
 ---
 
